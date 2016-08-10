@@ -31,7 +31,7 @@ export default class 翻譯結果 extends React.Component {
       superagent.get(後端網址 + '標漢字音標')
         .query({
             '查詢腔口': 腔口,
-            '查詢語句': 語句,
+            '查詢語句': 語句.trim(),
           })
         .then(({ body }) => (this.setState({
           查詢結果:  {
@@ -74,17 +74,15 @@ export default class 翻譯結果 extends React.Component {
     }
 
     let 綜合標音 = 查詢結果.綜合標音.map(
-      (綜音, i)=> {
-        return (
-          <div key={i}>
-            <合成結果 後端網址={this.props.後端網址}
-              腔口={this.props.腔口}
-              語句={綜音.分詞}/><br/>
-            {綜音.漢字}<br/>
-            {綜音.臺羅閏號調}
-          </div>
-        );
-      }
+      (綜音, i)=> (
+        <div key={i}>
+          <合成結果 後端網址={this.props.後端網址}
+            腔口={this.props.腔口}
+            語句={綜音.分詞}/>
+          {綜音.漢字}<br/>
+          {綜音.臺羅閏號調}
+        </div>
+      )
     );
     return (
         <div className='main'>
