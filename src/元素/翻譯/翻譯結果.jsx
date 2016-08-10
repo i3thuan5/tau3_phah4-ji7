@@ -3,7 +3,7 @@ import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
 import 合成結果 from '../合成/合成結果';
 
-var debug = Debug('sia2:翻譯結果');
+var debug = Debug('tau3:標漢字音標結果');
 
 export default class 翻譯結果 extends React.Component {
 
@@ -28,7 +28,7 @@ export default class 翻譯結果 extends React.Component {
     let { 頂一句語句 } = this.state;
     if (語句 != 頂一句語句)
     {
-      superagent.get(後端網址 + '%E6%AD%A3%E8%A6%8F%E5%8C%96%E7%BF%BB%E8%AD%AF')
+      superagent.get(後端網址 + '標漢字音標')
         .query({
             '查詢腔口': 腔口,
             '查詢語句': 語句,
@@ -75,15 +75,11 @@ export default class 翻譯結果 extends React.Component {
 
     let 綜合標音 = 查詢結果.綜合標音.map(
       (綜音, i)=> {
-        let 漢字陣列 = 綜音.漢字.split(' ');
-        let 臺羅陣列 = 綜音.臺羅閏號調.split(' ');
-        let 標音 = 漢字陣列.map(
-          (漢字, 第幾个)=>(<ruby key={第幾个}>{漢字}<rt>{臺羅陣列[第幾个]}</rt></ruby>)
-        );
         return (
-          <div key={i}>
-            {標音}
-          </div>
+          <p key={i}>
+            {綜音.漢字}<br/>
+            {綜音.臺羅閏號調}
+          </p>
         );
       }
     );
