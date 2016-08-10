@@ -7,7 +7,7 @@ import 查 from './頁/查/查';
 import './app.css';
 
 import Debug from 'debug';
-Debug.enable('sia2:*');
+Debug.enable('tau3:*');
 
 const root = document.getElementById('app');
 let history = browserHistory;
