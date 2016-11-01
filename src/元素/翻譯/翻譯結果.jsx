@@ -32,6 +32,9 @@ export default class 翻譯結果 extends React.Component {
     let { 頂一句語句 } = this.state;
     if (語句 != 頂一句語句)
     {
+      this.setState({
+          頂一句語句: 語句,
+        })
       superagent.get(後端網址 + '標漢字音標')
         .query({
             '查詢腔口': 腔口,
