@@ -7,7 +7,6 @@ var debug = Debug('tau3:漢字');
 
 export default class 漢字 extends React.Component {
 
-
   render () {
     let { 查詢結果 } = this.props;
 

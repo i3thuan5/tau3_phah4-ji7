@@ -2,10 +2,10 @@ import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
-import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝'
-import 漢字 from '../顯示/漢字'
-import 臺羅 from '../顯示/臺羅'
-import 分詞 from '../顯示/分詞'
+import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
+import 漢字 from '../顯示/漢字';
+import 臺羅 from '../顯示/臺羅';
+import 分詞 from '../顯示/分詞';
 
 var debug = Debug('tau3:標漢字音標結果');
 
@@ -34,7 +34,7 @@ export default class 翻譯結果 extends React.Component {
     {
       this.setState({
           頂一句語句: 語句,
-        })
+        });
       superagent.get(後端網址 + '標漢字音標')
         .query({
             '查詢腔口': 腔口,
@@ -79,6 +79,7 @@ export default class 翻譯結果 extends React.Component {
         </div>
       );
     }
+
     return (
         <div className='main'>
           <Tabs selectedIndex={0}>

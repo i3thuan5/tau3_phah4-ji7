@@ -7,7 +7,6 @@ var debug = Debug('tau3:分詞');
 
 export default class 分詞 extends React.Component {
 
-
   render () {
     let { 查詢結果 } = this.props;
 

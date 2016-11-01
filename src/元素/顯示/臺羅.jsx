@@ -7,7 +7,6 @@ var debug = Debug('tau3:漢字一逝臺羅一逝');
 
 export default class 漢字一逝臺羅一逝 extends React.Component {
 
-
   render () {
     let { 查詢結果 } = this.props;
 
