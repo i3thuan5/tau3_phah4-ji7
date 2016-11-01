@@ -1,7 +1,7 @@
 {
   "name": "sia2_siann2-mih4",
   "version": "0.0.1",
-  "description": "寫啥物",
+  "description": "鬥拍字",
   "scripts": {
     "start": "node devServer.js",
     "test": "jscs *.js src/",
@@ -46,6 +46,7 @@
     "react-dom": "^15.2.0",
     "react-hot-loader": "^1.3.0",
     "react-router": "^2.5.2",
+    "react-tabs": "^0.8.2",
     "strict-loader": "^1.1.0",
     "style-loader": "^0.13.1",
     "superagent": "^2.0.0",
