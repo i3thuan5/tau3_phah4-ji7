@@ -43,7 +43,6 @@ export default class 翻譯結果 extends React.Component {
         .then(({ body }) => (this.setState({
           查詢結果:  {
             '查詢語句': 語句,
-            '翻譯正規化結果': body.翻譯正規化結果,
             '綜合標音': body.綜合標音,
           },
           頂一句語句: 語句,
@@ -51,22 +50,12 @@ export default class 翻譯結果 extends React.Component {
         .catch((err) => (this.setState({
           查詢結果:  {
             '查詢語句': 語句,
-            '翻譯正規化結果': '發生錯誤',
             '綜合標音': [],
             '內容': err,
           },
           頂一句語句: 語句,
         })));
     }
-  }
-
-  顯示合成結果(查詢結果)
-  {
-    return (
-      <合成結果 後端網址={this.props.後端網址}
-        腔口={this.props.腔口}
-        語句={查詢結果.翻譯正規化結果}/>
-    );
   }
 
   render () {
