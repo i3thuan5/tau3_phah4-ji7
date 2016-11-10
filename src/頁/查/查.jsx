@@ -13,7 +13,7 @@ export default class 查 extends React.Component {
     super(props);
     this.state = {
       腔口:  '閩南語',
-      語句: this.props.params.ku || '你好嗎？我很好！',
+      語句: this.props.params.ku || '逐家tsò-hué來chhit4-tho5！',
     };
   }
 
