@@ -5,7 +5,7 @@ import Debug from 'debug';
 import 翻譯結果 from '../../元素/翻譯/翻譯結果';
 import './查.css';
 
-var debug = Debug('sia2:查');
+var debug = Debug('tau3:查');
 
 export default class 查 extends React.Component {
 
