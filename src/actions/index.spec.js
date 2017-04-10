@@ -12,7 +12,6 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Action', () => {
-
   afterEach(()=> {
     nock.cleanAll();
   });
@@ -33,7 +32,7 @@ describe('Action', () => {
         '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
         '漢字': '逐家 做伙 來𨑨迌 ！',
         '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-      },],
+      }, ],
     });
 
     const store = mockStore({
@@ -52,7 +51,7 @@ describe('Action', () => {
             '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
             '漢字': '逐家 做伙 來𨑨迌 ！',
             '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-          },],
+          }, ],
         }, },
     ];
 
