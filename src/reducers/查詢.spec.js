@@ -38,7 +38,7 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        },],
+        }, ],
       },
     }))
     .to
@@ -54,7 +54,28 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        },],
+        }, ],
+      },
+    });
+  });
+
+  it('preserves previous value when get new request', ()=> {
+    expect(查詢({
+      語句: '逐家',
+      正在查詢: false,
+      查詢結果: {
+        '分詞': '逐-家｜tak8-ke1',
+      },
+    }, {
+      type: 'REQUEST_HANLO',
+      語句: 'sui2',
+    }))
+    .to
+    .eql({
+      語句: 'sui2',
+      正在查詢: true,
+      查詢結果: {
+        '分詞': '逐-家｜tak8-ke1',
       },
     });
   });

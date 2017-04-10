@@ -13,7 +13,7 @@ const 查詢 = (state = 初始state, action) => {
   switch (action.type) {
     case REQUEST_HANLO:
       return {
-        ...初始state,
+        ...state,
         語句: action.語句,
         正在查詢: true,
       };

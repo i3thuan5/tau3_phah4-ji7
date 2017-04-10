@@ -13,18 +13,13 @@ var debug = Debug('tau3:標漢字音標結果');
 export default class 翻譯結果 extends React.Component {
   render () {
     let { 腔口, 正在查詢, 查詢結果 } = this.props;
-    if (正在查詢)
-    {
-      return (
-        <div className='main'>
-          <h3>載入中……</h3>
-        </div>
-      );
-    }
 
     return (
         <div className='main'>
-          <Tabs selectedIndex={0}>
+          {
+            (正在查詢 && <h3>載入中……</h3>)
+          }
+          <Tabs selectedIndex={0} style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
             <TabList>
               <Tab>漢字+臺羅</Tab>
               <Tab>漢字</Tab>
