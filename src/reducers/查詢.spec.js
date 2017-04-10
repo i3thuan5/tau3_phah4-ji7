@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { 查詢 } from './';
+import 查詢 from './查詢';
 
 describe('Reducer', () => {
   it('has initial state', ()=> {

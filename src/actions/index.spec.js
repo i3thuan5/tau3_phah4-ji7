@@ -7,6 +7,7 @@ import {
   RECIEVE_HANLO
 } from './action.type';
 import { 查詢語句 } from './';
+import { 後端網址, 標漢字音標 } from '../後端網址';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -17,8 +18,8 @@ describe('Action', () => {
   });
 
   it('creates RECIEVE_HANLO when fetching data is done', () => {
-    nock('http://140.109.16.144/')
-    .get('/標漢字音標')
+    nock(後端網址)
+    .get('/' + 標漢字音標)
     .query({
       '查詢腔口': '閩南語',
       '查詢語句': '逐家tsò-hué來chhit4-tho5！',
@@ -32,7 +33,7 @@ describe('Action', () => {
         '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
         '漢字': '逐家 做伙 來𨑨迌 ！',
         '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-      }, ],
+      },],
     });
 
     const store = mockStore({
@@ -51,7 +52,7 @@ describe('Action', () => {
             '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
             '漢字': '逐家 做伙 來𨑨迌 ！',
             '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-          }, ],
+          },],
         }, },
     ];
 
