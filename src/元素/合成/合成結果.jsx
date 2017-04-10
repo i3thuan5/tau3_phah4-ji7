@@ -1,13 +1,13 @@
-
 import React from 'react';
 import Debug from 'debug';
+import { 後端網址 } from '../../後端網址';
 
 var debug = Debug('tau3:合成結果');
 
 export default class 合成結果 extends React.Component {
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.後端網址 === this.props.後端網址 &&
+    if (後端網址 &&
       nextProps.腔口 === this.props.腔口 &&
       nextProps.語句 === this.props.語句) return;
     let 音檔 = this.refs.合成音檔;
