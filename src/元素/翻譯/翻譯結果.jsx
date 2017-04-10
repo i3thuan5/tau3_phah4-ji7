@@ -6,6 +6,7 @@ import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
 import 漢字 from '../顯示/漢字';
 import 臺羅 from '../顯示/臺羅';
 import 分詞 from '../顯示/分詞';
+import { 後端網址 } from '../../後端網址';
 
 var debug = Debug('tau3:標漢字音標結果');
 
@@ -28,7 +29,7 @@ export default class 翻譯結果 extends React.Component {
 
   掠()
   {
-    let { 後端網址, 腔口, 語句 } = this.props;
+    let { 腔口, 語句 } = this.props;
     let { 頂一句語句 } = this.state;
     if (語句 != 頂一句語句)
     {

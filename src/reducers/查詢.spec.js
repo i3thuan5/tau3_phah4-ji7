@@ -6,7 +6,7 @@ describe('Reducer', () => {
     expect(查詢(undefined, {}))
     .to
     .eql({
-      語句: undefined,
+      語句: '逐家tsò-hué來chhit4-tho5！',
       正在查詢: false,
       查詢結果: {},
     });
@@ -38,7 +38,7 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        }, ],
+        },],
       },
     }))
     .to
@@ -54,7 +54,7 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        }, ],
+        },],
       },
     });
   });
@@ -63,7 +63,7 @@ describe('Reducer', () => {
     expect(查詢(undefined, { type: 'HELLO_WORLD' }))
     .to
     .eql({
-      語句: undefined,
+      語句: '逐家tsò-hué來chhit4-tho5！',
       正在查詢: false,
       查詢結果: {},
     });
