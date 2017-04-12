@@ -33,9 +33,9 @@ export default class 查 extends React.Component {
         <form onSubmit={this.送出.bind(this)}>
           <textarea defaultValue={語句} ref='tt' />
           <button className={
-            `ui huge right floated 
-            ${正在查詢 ? 'disabled' : ''} 
-            button`}
+            'ui huge primary right floated ' +
+            (正在查詢 ? 'disabled' : '') +
+            ' button'}
             type='submit'
           >GO</button>
         </form>
