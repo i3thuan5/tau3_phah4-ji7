@@ -101,6 +101,20 @@ describe('Reducer', () => {
     });
   });
 
+  it('show info when get action RECIEVE_ERROR_HANLO', ()=> {
+    expect(查詢(undefined, { type: 'RECIEVE_ERROR_HANLO', 語句: '逐家' }))
+    .to
+    .eql({
+      語句: '逐家',
+      正在查詢: false,
+      查詢結果: {
+        '發生錯誤': true,
+        '分詞': '',
+        '綜合標音': [],
+      },
+    });
+  });
+
   it('ignores other action', ()=> {
     expect(查詢(undefined, { type: 'HELLO_WORLD' }))
     .to
