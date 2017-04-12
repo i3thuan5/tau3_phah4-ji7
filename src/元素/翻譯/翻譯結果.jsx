@@ -1,11 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
 import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
-import 漢字 from '../顯示/漢字';
-import 臺羅 from '../顯示/臺羅';
-import 分詞 from '../顯示/分詞';
 import { 後端網址 } from '../../後端網址';
 import 顯示 from '../顯示/顯示';
 
