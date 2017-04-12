@@ -27,13 +27,17 @@ export default class 查 extends React.Component {
   }
 
   render () {
-    let { 語句 } = this.props;
+    let { 語句, 正在查詢 } = this.props;
     return (
       <div className='main container'>
         <form onSubmit={this.送出.bind(this)}>
           <textarea defaultValue={語句} ref='tt' />
-          <button className='ui huge primary right floated button'
-            type='submit'>GO</button>
+          <button className={
+            `ui huge right floated 
+            ${正在查詢 ? 'disabled' : ''} 
+            button`}
+            type='submit'
+          >GO</button>
         </form>
         <br/>
         <Container翻譯結果/>

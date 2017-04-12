@@ -5,6 +5,7 @@ import { 查詢語句 } from '../../actions';
 //props from router params
 const matchStateToProps = (state, ownProps) => ({
   語句: ownProps.語句,
+  正在查詢: state.查詢.正在查詢,
 });
 
 const matchDispatchToProps = (dispatch) => {
