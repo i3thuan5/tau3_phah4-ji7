@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import 查 from './查';
 import { 查詢語句 } from '../../actions';
 
-const matchStateToProps = (state) => ({
-  語句: state.查詢.語句,
+//props from router params
+const matchStateToProps = (state, ownProps) => ({
+  語句: ownProps.語句,
 });
 
 const matchDispatchToProps = (dispatch) => {

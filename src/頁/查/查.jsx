@@ -1,5 +1,5 @@
 import React from 'react';
-// import superagent from 'superagent-bluebird-promise';
+import { browserHistory } from 'react-router';
 import Debug from 'debug';
 import Container翻譯結果 from '../../元素/翻譯/翻譯結果.container';
 import './查.css';
@@ -12,6 +12,7 @@ export default class 查 extends React.Component {
     debug(this.props);
     let { 語句, requestSearch } = this.props;
     requestSearch(語句);
+    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(語句));
   }
 
   跳到語句 (e) {
@@ -19,6 +20,7 @@ export default class 查 extends React.Component {
     let tt = this.refs.tt;
     let { requestSearch } = this.props;
     requestSearch(tt.value);
+    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(tt.value));
   }
 
   render () {
