@@ -10,11 +10,15 @@ var debug = Debug('tau3:標漢字音標結果');
 class 翻譯結果 extends React.Component {
   render () {
     let { 腔口, 正在查詢, 查詢結果 } = this.props;
+    let 發生錯誤 = 查詢結果.發生錯誤 || false;
 
     return (
         <div className='main'>
           {
-            (正在查詢 && <h3>載入中……</h3>)
+            (正在查詢 && <h2 className='ui header'>載入中……</h2>)
+          }
+          {
+            (發生錯誤 && <h2 className='ui header'>主機發生錯誤</h2>)
           }
           <Tabs selectedIndex={0} style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
             <TabList>
