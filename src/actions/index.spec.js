@@ -61,4 +61,63 @@ describe('Action', () => {
         expect(store.getActions()).to.eql(expectActions);
       });
   });
+
+  it('creates only one RECIEVE_HANLO for long sentence', () => {
+    nock(後端網址)
+    .get('/' + 標漢字音標)
+    .query({
+      '查詢腔口': '閩南語',
+      '查詢語句': '逐家！\n逐家',
+    })
+    .reply(200, {
+      '分詞': '逐-家｜tak8-ke1！ 逐-家｜tak8-ke1',
+      '綜合標音': [{
+        '分詞': '逐-家｜tak8-ke1',
+        '臺羅閏號調': 'Ta̍k-ke',
+        '通用數字調': 'Dak6-ge1',
+        '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+        '漢字': '逐家',
+        '臺羅數字調': 'Tak8-ke1',
+      }, {
+        '分詞': '逐-家｜tak8-ke1',
+        '臺羅閏號調': 'Ta̍k-ke',
+        '通用數字調': 'Dak6-ge1',
+        '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+        '漢字': '逐家',
+        '臺羅數字調': 'Tak8-ke1',
+      },],
+    });
+
+    const store = mockStore({
+        '查詢結果': {},
+      });
+
+    const expectActions = [
+      { type: REQUEST_HANLO, '語句': '逐家！\n逐家' },
+      { type: RECIEVE_HANLO, '語句': '逐家！\n逐家',
+        '查詢結果': {
+          '分詞': '逐-家｜tak8-ke1！ 逐-家｜tak8-ke1',
+          '綜合標音': [{
+            '分詞': '逐-家｜tak8-ke1',
+            '臺羅閏號調': 'Ta̍k-ke',
+            '通用數字調': 'Dak6-ge1',
+            '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+            '漢字': '逐家',
+            '臺羅數字調': 'Tak8-ke1',
+          }, {
+            '分詞': '逐-家｜tak8-ke1',
+            '臺羅閏號調': 'Ta̍k-ke',
+            '通用數字調': 'Dak6-ge1',
+            '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+            '漢字': '逐家',
+            '臺羅數字調': 'Tak8-ke1',
+          },],
+        },
+      }, ];
+
+    return store.dispatch(查詢語句('逐家！\n逐家'))
+      .then(()=> {
+        expect(store.getActions()).to.eql(expectActions);
+      });
+  });
 });
