@@ -6,7 +6,10 @@ import {
 const 初始state = {
   語句: '逐家tsò-hué來chhit4-tho5！',
   正在查詢: false,
-  查詢結果: {},
+  查詢結果: {
+    '分詞': '',
+    '綜合標音': [],
+  },
 };
 
 const 查詢 = (state = 初始state, action) => {

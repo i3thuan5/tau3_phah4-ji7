@@ -2,14 +2,19 @@ import { expect } from 'chai';
 import 查詢 from './查詢';
 
 describe('Reducer', () => {
+  let 初始狀態規範 = {
+      語句: '逐家tsò-hué來chhit4-tho5！',
+      正在查詢: false,
+      查詢結果: {
+        '分詞': '',
+        '綜合標音': [],
+      },
+    };
+
   it('has initial state', ()=> {
     expect(查詢(undefined, {}))
     .to
-    .eql({
-      語句: '逐家tsò-hué來chhit4-tho5！',
-      正在查詢: false,
-      查詢結果: {},
-    });
+    .eql(初始狀態規範);
   });
 
   it('recognizes action REQUEST_HANLO', ()=> {
@@ -19,9 +24,9 @@ describe('Reducer', () => {
     }))
     .to
     .eql({
+      ...初始狀態規範,
       語句: 'sui2',
       正在查詢: true,
-      查詢結果: {},
     });
   });
 
@@ -38,7 +43,7 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        }, ],
+        },],
       },
     }))
     .to
@@ -54,7 +59,7 @@ describe('Reducer', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        }, ],
+        },],
       },
     });
   });
@@ -65,6 +70,14 @@ describe('Reducer', () => {
       正在查詢: false,
       查詢結果: {
         '分詞': '逐-家｜tak8-ke1',
+        '綜合標音': [{
+          '分詞': '逐-家｜tak8-ke1',
+          '臺羅閏號調': 'Ta̍k-ke',
+          '通用數字調': 'Dak6-ge1',
+          '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+          '漢字': '逐家',
+          '臺羅數字調': 'Tak8-ke1',
+        },],
       },
     }, {
       type: 'REQUEST_HANLO',
@@ -76,6 +89,14 @@ describe('Reducer', () => {
       正在查詢: true,
       查詢結果: {
         '分詞': '逐-家｜tak8-ke1',
+        '綜合標音': [{
+          '分詞': '逐-家｜tak8-ke1',
+          '臺羅閏號調': 'Ta̍k-ke',
+          '通用數字調': 'Dak6-ge1',
+          '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
+          '漢字': '逐家',
+          '臺羅數字調': 'Tak8-ke1',
+        },],
       },
     });
   });
@@ -83,10 +104,6 @@ describe('Reducer', () => {
   it('ignores other action', ()=> {
     expect(查詢(undefined, { type: 'HELLO_WORLD' }))
     .to
-    .eql({
-      語句: '逐家tsò-hué來chhit4-tho5！',
-      正在查詢: false,
-      查詢結果: {},
-    });
+    .eql(初始狀態規範);
   });
 });
