@@ -4,7 +4,7 @@
   "description": "鬥拍字",
   "scripts": {
     "start": "node devServer.js",
-    "test": "NODE_ENV=test mocha --compilers js:babel-register --recursive src/**/*.spec.js || true",
+    "test": "NODE_ENV=test mocha --compilers js:babel-register `find src/ -name '*.spec.js'` || true",
     "check": "jscs *.js src/",
     "reformat": "jscs -x *.js src/",
     "build": "mkdir -p build;rm -f build/* && NODE_ENV=production webpack --config webpack.config.prod.js --bail && (echo 'xn--p8s96olm5c.xn--v0qr21b.xn--kpry57d' > build/CNAME) && cp index.html build/ && cp index.html build/404.html",
