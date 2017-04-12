@@ -37,9 +37,7 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
     );
     return (
         <div className='main'>
-          <div>
-            {綜合標音}
-          </div>
+          {綜合標音}
         </div>
       );
   }
