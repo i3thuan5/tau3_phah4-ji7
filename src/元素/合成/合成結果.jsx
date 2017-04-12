@@ -24,8 +24,8 @@ export default class 合成結果 extends React.Component {
         <span className='HuatIm'>
           <audio ref="合成音檔">
             <source type="audio/wav"
-               src={this.props.後端網址
-                 + '語音合成?查詢腔口=' + this.props.腔口
+               src={後端網址
+                 + '語音合成?查詢腔口=閩南語'
                  + '&查詢語句=' + this.props.語句}/>
           </audio>
           <button onClick={this.play.bind(this)}
