@@ -27,7 +27,7 @@ export default class 查 extends React.Component {
       <div className='main container'>
         <form onSubmit={this.跳到語句.bind(this)}>
           <textarea defaultValue={語句} ref='tt' />
-          <button className='ui primary button'
+          <button className='ui huge primary right floated button'
             type='submit'>GO</button>
         </form>
         <br/>

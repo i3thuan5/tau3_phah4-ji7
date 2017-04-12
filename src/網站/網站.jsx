@@ -20,7 +20,6 @@ export default class 網站 extends React.Component {
             React.cloneElement(
               this.props.children,
               {
-                後端網址: 'http://140.109.16.144/',
                 跳到語句: this.跳到語句.bind(this),
               }
             )

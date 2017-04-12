@@ -13,12 +13,16 @@ class 翻譯結果 extends React.Component {
     let 發生錯誤 = 查詢結果.發生錯誤 || false;
 
     return (
-        <div className='main'>
+        <div>
           {
-            (正在查詢 && <h2 className='ui header'>載入中……</h2>)
+            (正在查詢 &&
+              <h1 className='ui header'>載入中……</h1>
+            )
           }
           {
-            (發生錯誤 && <h2 className='ui header'>主機發生錯誤</h2>)
+            (發生錯誤 &&
+              <h1 className='ui red header'>主機發生錯誤</h1>
+            )
           }
           <Tabs selectedIndex={0} style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
             <TabList>
