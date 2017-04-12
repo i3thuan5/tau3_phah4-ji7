@@ -9,25 +9,28 @@ var debug = Debug('tau3:查');
 export default class 查 extends React.Component {
 
   componentDidMount() {
-    debug(this.props);
     let { 語句, requestSearch } = this.props;
     requestSearch(語句);
-    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(語句));
+    this.更新網址(語句);
   }
 
-  跳到語句 (e) {
+  送出 (e) {
     e.preventDefault();
     let tt = this.refs.tt;
     let { requestSearch } = this.props;
     requestSearch(tt.value);
-    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(tt.value));
+    this.更新網址(tt.value);
+  }
+
+  更新網址(語句) {
+    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(語句));
   }
 
   render () {
     let { 語句 } = this.props;
     return (
       <div className='main container'>
-        <form onSubmit={this.跳到語句.bind(this)}>
+        <form onSubmit={this.送出.bind(this)}>
           <textarea defaultValue={語句} ref='tt' />
           <button className='ui huge primary right floated button'
             type='submit'>GO</button>
