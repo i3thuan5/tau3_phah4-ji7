@@ -33,7 +33,7 @@ const 查詢 = (state = 初始state, action) => {
         正在查詢: false,
         查詢結果: {
           發生錯誤: true,
-          ...初始state.查詢結果,
+          ...state.查詢結果,
         },
       };
     default:
