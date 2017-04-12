@@ -4,7 +4,8 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
   REQUEST_HANLO,
-  RECIEVE_HANLO
+  RECIEVE_HANLO,
+  RECIEVE_ERROR_HANLO
 } from './action.type';
 import { 查詢語句 } from './';
 import { 後端網址, 標漢字音標 } from '../後端網址';
@@ -116,6 +117,29 @@ describe('Action', () => {
       }, ];
 
     return store.dispatch(查詢語句('逐家！\n逐家'))
+      .then(()=> {
+        expect(store.getActions()).to.eql(expectActions);
+      });
+  });
+
+  it('catch 500 error', () => {
+    nock(後端網址)
+    .get('/' + 標漢字音標)
+    .query({
+      '查詢腔口': '閩南語',
+      '查詢語句': '逐家',
+    })
+    .replyWithError('你糗了你！');
+
+    const store = mockStore({
+        '查詢結果': {},
+      });
+
+    const expectActions = [
+      { type: REQUEST_HANLO, '語句': '逐家' },
+      { type: RECIEVE_ERROR_HANLO, '語句': '逐家' }, ];
+
+    return store.dispatch(查詢語句('逐家'))
       .then(()=> {
         expect(store.getActions()).to.eql(expectActions);
       });
