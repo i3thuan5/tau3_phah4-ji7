@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import 查 from './查';
+import 查 from '../../src/頁/查/查';
 
 let setup = (語句='', 正在查詢=false) => {
   const component = shallow(

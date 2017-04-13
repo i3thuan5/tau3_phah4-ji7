@@ -7,9 +7,9 @@ import {
   REQUEST_HANLO,
   RECIEVE_HANLO,
   RECIEVE_ERROR_HANLO
-} from './action.type';
-import { 是否可以請求查詢, 遠端查詢 } from './';
-import { 後端網址, 標漢字音標 } from '../後端網址';
+} from '../../src/actions/action.type';
+import { 是否可以請求查詢, 遠端查詢 } from '../../src/actions/';
+import { 後端網址, 標漢字音標 } from '../../src/後端網址';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

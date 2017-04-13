@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import 翻譯結果 from './翻譯結果';
+import 翻譯結果 from '../../src/元素/翻譯/翻譯結果';
 
 let setup = (腔口='閩南語', 正在查詢=false, 查詢結果={}) => {
   const component = shallow(

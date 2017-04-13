@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import 顯示 from './顯示';
+import 顯示 from '../../src/元素/顯示/顯示';
 
 let setup = (選項='分詞', 查詢結果={}) => {
   const component = shallow(
@@ -26,7 +26,7 @@ describe('Component', () => {
           '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
           '漢字': '逐家',
           '臺羅數字調': 'Tak8-ke1',
-        },],
+        }, ],
       });
       expect(span.text()).match(/^逐家/);
     });
