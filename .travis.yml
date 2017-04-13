@@ -1,11 +1,12 @@
 sudo: false
 language: node_js
 node_js:
-- '5'
+- 'node'
 - '6'
 env:
 - TSI2_LING7='build'
 - TSI2_LING7='test'
+- TSI2_LING7='check'
 branches:
   only:
   - master
