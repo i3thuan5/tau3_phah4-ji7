@@ -35,8 +35,7 @@ export const 遠端查詢 = 語句 => dispatch => {
 };
 
 export const 是否可以請求查詢 = (state, 語句) => {
-  console.log(state.語句, 語句);
-  if (state.語句 === 語句 ||
+  if (state.查詢.語句 === 語句 ||
     state.正在查詢)
   {
     return false;
