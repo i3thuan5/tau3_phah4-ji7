@@ -5,7 +5,7 @@ import {
 } from '../actions/action.type';
 
 const 初始state = {
-  語句: '逐家tsò-hué來chhit4-tho5！',
+  語句: '',
   正在查詢: false,
   查詢結果: {
     '分詞': '',
