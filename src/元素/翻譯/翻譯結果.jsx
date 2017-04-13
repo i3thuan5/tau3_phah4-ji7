@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Debug from 'debug';
 import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Debug from 'debug';
 import 合成結果 from '../合成/合成結果';
 
