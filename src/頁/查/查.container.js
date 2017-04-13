@@ -8,11 +8,9 @@ const matchStateToProps = (state, ownProps) => ({
   正在查詢: state.查詢.正在查詢,
 });
 
-const matchDispatchToProps = (dispatch) => {
-  return {
+const matchDispatchToProps = (dispatch) => ({
     requestSearch: (語句) => {dispatch(查詢語句(語句));},
-  };
-};
+  });
 
 const Container查詢 = connect(
   matchStateToProps,
