@@ -1,5 +1,6 @@
 import nock from 'nock';
 import { expect } from 'chai';
+import sinon from 'sinon';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
@@ -7,7 +8,7 @@ import {
   RECIEVE_HANLO,
   RECIEVE_ERROR_HANLO
 } from './action.type';
-import { 查詢語句 } from './';
+import { 是否可以請求查詢, 遠端查詢 } from './';
 import { 後端網址, 標漢字音標 } from '../後端網址';
 
 const middlewares = [thunk];
@@ -16,6 +17,42 @@ const mockStore = configureMockStore(middlewares);
 describe('Action', () => {
   afterEach(()=> {
     nock.cleanAll();
+  });
+
+  it('passes valid search', function () {
+      const 語句 = '下一句';
+      const store = mockStore({
+        查詢: {
+          語句: '逐家tsò-hué來chhit4-tho5！',
+          正在查詢: false,
+          查詢結果: {},
+        },
+      });
+      expect(是否可以請求查詢(store.getState(), 語句)).to.be.true;
+    });
+
+  it('stops invalid search', ()=> {
+    const 語句 = '下一句';
+    const store = mockStore({
+      查詢: {
+        語句: '逐家tsò-hué來chhit4-tho5！',
+        正在查詢: true,
+        查詢結果: {},
+      },
+    });
+    expect(是否可以請求查詢(store.getState(), 語句)).to.be.false;
+  });
+
+  it('stops same search', ()=> {
+    const 語句 = '逐家tsò-hué來chhit4-tho5！';
+    const store = mockStore({
+      查詢: {
+        語句: '逐家tsò-hué來chhit4-tho5！',
+        正在查詢: false,
+        查詢結果: {},
+      },
+    });
+    expect(是否可以請求查詢(store.getState(), 語句)).to.be.false;
   });
 
   it('creates RECIEVE_HANLO when fetching data is done', () => {
@@ -34,12 +71,14 @@ describe('Action', () => {
         '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
         '漢字': '逐家 做伙 來𨑨迌 ！',
         '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-      },],
+      }, ],
     });
 
     const store = mockStore({
+      查詢: {
         '查詢結果': {},
-      });
+      },
+    });
 
     const expectActions = [
       { type: REQUEST_HANLO, '語句': '逐家tsò-hué來chhit4-tho5！' },
@@ -53,17 +92,17 @@ describe('Action', () => {
             '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ ㄗㄜ˪-ㄏㄨㆤˋ ㄌㄞˊ-ㄑㄧㆵ-ㄊㄜˊ ！',
             '漢字': '逐家 做伙 來𨑨迌 ！',
             '臺羅數字調': 'Tak8-ke1 tso3-hue2 lai5-tshit4-tho5 ！',
-          },],
+          }, ],
         }, },
     ];
 
-    return store.dispatch(查詢語句('逐家tsò-hué來chhit4-tho5！'))
+    return store.dispatch(遠端查詢('逐家tsò-hué來chhit4-tho5！'))
       .then(()=> {
         expect(store.getActions()).to.eql(expectActions);
       });
   });
 
-  it('creates only one RECIEVE_HANLO for long sentence', () => {
+  it('creates only one RECIEVE_HANLO for breaklines', () => {
     nock(後端網址)
     .get('/' + 標漢字音標)
     .query({
@@ -86,12 +125,14 @@ describe('Action', () => {
         '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
         '漢字': '逐家',
         '臺羅數字調': 'Tak8-ke1',
-      },],
+      }, ],
     });
 
     const store = mockStore({
+      查詢: {
         '查詢結果': {},
-      });
+      },
+    });
 
     const expectActions = [
       { type: REQUEST_HANLO, '語句': '逐家！\n逐家' },
@@ -112,17 +153,17 @@ describe('Action', () => {
             '吳守禮方音': 'ㄉㄚ㆐ㆶ-ㄍㆤ',
             '漢字': '逐家',
             '臺羅數字調': 'Tak8-ke1',
-          },],
+          }, ],
         },
-      }, ];
+      },];
 
-    return store.dispatch(查詢語句('逐家！\n逐家'))
+    return store.dispatch(遠端查詢('逐家！\n逐家'))
       .then(()=> {
         expect(store.getActions()).to.eql(expectActions);
       });
   });
 
-  it('catch 500 error', () => {
+  it('catches 500 error', () => {
     nock(後端網址)
     .get('/' + 標漢字音標)
     .query({
@@ -132,14 +173,16 @@ describe('Action', () => {
     .replyWithError('你糗了你！');
 
     const store = mockStore({
+      查詢: {
         '查詢結果': {},
-      });
+      },
+    });
 
     const expectActions = [
       { type: REQUEST_HANLO, '語句': '逐家' },
-      { type: RECIEVE_ERROR_HANLO, '語句': '逐家' }, ];
+      { type: RECIEVE_ERROR_HANLO, '語句': '逐家' },];
 
-    return store.dispatch(查詢語句('逐家'))
+    return store.dispatch(遠端查詢('逐家'))
       .then(()=> {
         expect(store.getActions()).to.eql(expectActions);
       });
