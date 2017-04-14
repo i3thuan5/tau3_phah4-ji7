@@ -1,77 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import superagent from 'superagent-bluebird-promise';
 import Debug from 'debug';
 import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
-import 漢字 from '../顯示/漢字';
-import 臺羅 from '../顯示/臺羅';
-import 分詞 from '../顯示/分詞';
+import { 後端網址 } from '../../後端網址';
+import 顯示 from '../顯示/顯示';
 
 var debug = Debug('tau3:標漢字音標結果');
 
-export default class 翻譯結果 extends React.Component {
-
-  constructor (props) {
-    super(props);
-    this.state = {
-      頂一句語句: undefined,
-    };
-  }
-
-  componentWillMount () {
-    this.掠仔 = setInterval(this. 掠.bind(this), 2000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.掠仔);
-  }
-
-  掠()
-  {
-    let { 後端網址, 腔口, 語句 } = this.props;
-    let { 頂一句語句 } = this.state;
-    if (語句 != 頂一句語句)
-    {
-      this.setState({
-          頂一句語句: 語句,
-        });
-      superagent.get(後端網址 + '標漢字音標')
-        .query({
-            '查詢腔口': 腔口,
-            '查詢語句': 語句.trim(),
-          })
-        .then(({ body }) => (this.setState({
-          查詢結果:  {
-            '查詢語句': 語句,
-            '綜合標音': body.綜合標音,
-          },
-          頂一句語句: 語句,
-        })))
-        .catch((err) => (this.setState({
-          查詢結果:  {
-            '查詢語句': 語句,
-            '綜合標音': [],
-            '內容': err,
-          },
-          頂一句語句: 語句,
-        })));
-    }
-  }
-
+class 翻譯結果 extends React.Component {
   render () {
-    let { 查詢結果 } = this.state;
-    if (!查詢結果)
-    {
-      return (
-        <div className='main'>
-          <h3>載入中……</h3>
-        </div>
-      );
-    }
+    let { 腔口, 正在查詢, 查詢結果 } = this.props;
+    let 發生錯誤 = 查詢結果.發生錯誤 || false;
 
     return (
-        <div className='main'>
-          <Tabs selectedIndex={0}>
+        <div>
+          {
+            (正在查詢 &&
+              <h1 className='ui header'>載入中……</h1>
+            )
+          }
+          {
+            (發生錯誤 &&
+              <h1 className='ui red header'>主機發生錯誤</h1>
+            )
+          }
+          <Tabs selectedIndex={0} style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
             <TabList>
               <Tab>漢字+臺羅</Tab>
               <Tab>漢字</Tab>
@@ -82,29 +36,16 @@ export default class 翻譯結果 extends React.Component {
                 <漢字一逝臺羅一逝
                   後端網址={this.props.後端網址}
                   腔口={this.props.腔口}
-                  查詢結果={查詢結果}
-                  />
+                  查詢結果={查詢結果}/>
             </TabPanel>
             <TabPanel>
-                <漢字
-                  後端網址={this.props.後端網址}
-                  腔口={this.props.腔口}
-                  查詢結果={查詢結果}
-                  />
+              <顯示 選項='漢字' 查詢結果={查詢結果}/>
             </TabPanel>
             <TabPanel>
-                <臺羅
-                  後端網址={this.props.後端網址}
-                  腔口={this.props.腔口}
-                  查詢結果={查詢結果}
-                  />
+              <顯示 選項='臺羅閏號調' 查詢結果={查詢結果}/>
             </TabPanel>
             <TabPanel>
-                <分詞
-                  後端網址={this.props.後端網址}
-                  腔口={this.props.腔口}
-                  查詢結果={查詢結果}
-                  />
+              <顯示 選項='分詞' 查詢結果={查詢結果}/>
             </TabPanel>
           </Tabs>
         </div>
@@ -112,3 +53,12 @@ export default class 翻譯結果 extends React.Component {
   }
 }
 
+翻譯結果.propTypes = {
+  正在查詢: PropTypes.bool.isRequired,
+  查詢結果: PropTypes.shape({
+
+    綜合標音: PropTypes.array.isRequired,
+  }).isRequired,
+};
+
+export default 翻譯結果;

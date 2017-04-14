@@ -1,38 +1,46 @@
-
 import React from 'react';
-import superagent from 'superagent-bluebird-promise';
+import { browserHistory } from 'react-router';
 import Debug from 'debug';
-import 翻譯結果 from '../../元素/翻譯/翻譯結果';
+import Container翻譯結果 from '../../元素/翻譯/翻譯結果.container';
 import './查.css';
 
 var debug = Debug('tau3:查');
 
 export default class 查 extends React.Component {
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      腔口:  '閩南語',
-      語句: this.props.params.ku || '逐家tsò-hué來chhit4-tho5！',
-    };
+  componentDidMount() {
+    let { 語句, requestSearch } = this.props;
+    requestSearch(語句);
+    this.更新網址(語句);
   }
 
-  跳到語句 (textarea) {
-    let 語句 = textarea.target.value;
-    this.setState({ 語句 });
-    this.props.跳到語句(語句);
+  送出 (e) {
+    e.preventDefault();
+    let tt = this.refs.tt;
+    let { requestSearch } = this.props;
+    requestSearch(tt.value);
+    this.更新網址(tt.value);
+  }
+
+  更新網址(語句) {
+    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(語句));
   }
 
   render () {
-    let { 腔口, 語句 } = this.state;
+    let { 語句, 正在查詢 } = this.props;
     return (
       <div className='main container'>
-        <textarea id='語句' defaultValue={語句} onKeyUp={this.跳到語句.bind(this)}></textarea>
+        <form onSubmit={this.送出.bind(this)}>
+          <textarea defaultValue={語句} ref='tt' />
+          <button className={
+            'ui huge primary right floated ' +
+            (正在查詢 ? 'disabled' : '') +
+            ' button'}
+            type='submit'
+          >GO</button>
+        </form>
         <br/>
-        <翻譯結果 後端網址={this.props.後端網址}
-            腔口={腔口}
-            語句={語句}
-          />
+        <Container翻譯結果/>
       </div>
     );
   }

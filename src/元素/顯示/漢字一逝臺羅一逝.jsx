@@ -20,16 +20,11 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
                   腔口={this.props.腔口}
                   語句={綜音.分詞}/>
               </td>
-              <td>
-                {綜音.漢字}
-              </td>
+              <td>{綜音.漢字}</td>
             </tr>
             <tr>
-            <td>
-            </td>
-            <td>
-             {綜音.臺羅閏號調}
-            </td>
+              <td/>
+              <td>{綜音.臺羅閏號調}</td>
             </tr>
           </tbody>
         </table>
@@ -37,9 +32,7 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
     );
     return (
         <div className='main'>
-          <div id='輸出'>
-            {綜合標音}
-          </div>
+          {綜合標音}
         </div>
       );
   }
