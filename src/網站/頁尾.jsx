@@ -8,7 +8,7 @@ export default class ToLam extends React.Component {
       <footer className='app footer inverted'>
         <ul className='ui menu container inverted'>
           <li className='item'>
-            <a href='http://xn--jny.xn--v0qr21b.xn--kpry57d/'>相關專案</a>
+            <a href='https://xn--v0qr21b.xn--kpry57d/'>意傳文化科技</a>
           </li>
           <li className='item'>
             <a href='http://docs.tai5uan5gian5gi2hok8bu7.apiary.io/'>服務API</a>
