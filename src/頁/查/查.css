@@ -1,6 +1,8 @@
-.main{
-	margin:8px 0px;
+.ui.form {
+  margin-bottom: 3rem;
 }
-textarea{
-	width:100%;
+.ui.form textarea {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  resize: none;
 }

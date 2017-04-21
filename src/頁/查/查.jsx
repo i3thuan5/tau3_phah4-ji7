@@ -29,8 +29,10 @@ export default class 查 extends React.Component {
   render () {
     let { 語句, 正在查詢 } = this.props;
     return (
-      <div className='main container'>
-        <form onSubmit={this.送出.bind(this)}>
+      <div className='ui main grid text container'>
+        <div className='sixteen column'>
+        <form className='ui form'
+          onSubmit={this.送出.bind(this)}>
           <textarea defaultValue={語句} ref='tt' />
           <button className={
             'ui huge primary right floated ' +
@@ -41,6 +43,7 @@ export default class 查 extends React.Component {
         </form>
         <br/>
         <Container翻譯結果/>
+        </div>
       </div>
     );
   }
