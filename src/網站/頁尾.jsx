@@ -22,7 +22,12 @@ export default class ToLam extends React.Component {
     },];
 
     const items = sites.map(item =>
-        <a className='item' href={item.url}>{item.title}</a>
+        <a className='item'
+          target="_blank"
+          href={item.url}
+        >
+        {item.title}
+        </a>
       );
     return (
       <footer className='app footer inverted'>
