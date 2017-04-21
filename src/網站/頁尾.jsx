@@ -19,10 +19,11 @@ export default class ToLam extends React.Component {
     {
       title: '語料來源',
       url: 'https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_hok8-bu7/wiki/Taiwanese-Corpus%E8%AA%9E%E6%96%99',
-    }, ];
+    },];
 
-    const items = sites.map(item =>
-        <a className='item'
+    const items = sites.map((item, i) =>
+        <a key={i}
+          className='item'
           target="_blank"
           href={item.url}
         >
