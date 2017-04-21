@@ -3,6 +3,8 @@
 }
 .ui.form textarea {
   font-size: 2rem;
-  margin-bottom: 10px;
   resize: none;
+}
+.ui.button {
+  margin: 10px 0;
 }
