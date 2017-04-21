@@ -33,11 +33,13 @@ export default class 查表格 extends React.Component {
         <textarea defaultValue={語句}
           ref='tt'
           rows='3'/>
+        <div className='app clearing'>
         <button type='submit'
           className={
           'ui huge primary right floated ' +
           (正在查詢 ? 'disabled' : '') +
           ' button'}>GO</button>
+        </div>
       </form>
     );
   }

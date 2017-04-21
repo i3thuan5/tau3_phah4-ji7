@@ -42,3 +42,13 @@ body {
 .app.footer .menu {
   justify-content: center;
 }
+
+.app.clearing:before,
+.app.clearing:after{
+  display: block;
+  content: '.';
+  height: 0px;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
