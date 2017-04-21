@@ -21,17 +21,18 @@ body {
   min-height: 100vh;
 }
 
-.app > .main.container {
+.app.main.block {
   display: flex;
   flex-flow: row wrap;
   flex-grow: 1;
   align-content: flex-start;
+  justify-content: center;
 }
 
 .app.block,
 .app.table
 {
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 }
 
 .app.footer {
