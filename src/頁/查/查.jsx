@@ -33,7 +33,7 @@ export default class 查 extends React.Component {
         <div className='sixteen column'>
         <form className='ui form'
           onSubmit={this.送出.bind(this)}>
-          <textarea defaultValue={語句} ref='tt' />
+          <textarea defaultValue={語句} ref='tt' rows='3'/>
           <button className={
             'ui huge primary right floated ' +
             (正在查詢 ? 'disabled' : '') +
