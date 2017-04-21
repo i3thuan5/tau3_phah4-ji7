@@ -28,6 +28,12 @@ body {
   align-content: flex-start;
 }
 
+.app.block,
+.app.table
+{
+  margin-bottom: 1rem;
+}
+
 .app.footer {
   background: #1b1c1d;
 }

@@ -12,7 +12,7 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
 
     let 綜合標音 = 查詢結果.綜合標音.map(
       (綜音, i)=> (
-        <table key={i}>
+        <table key={i} className='app table'>
           <tbody>
             <tr>
               <td>
@@ -31,7 +31,7 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
       )
     );
     return (
-        <div className='main'>
+        <div>
           {綜合標音}
         </div>
       );
