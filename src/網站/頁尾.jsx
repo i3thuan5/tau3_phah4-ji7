@@ -6,11 +6,11 @@ export default class ToLam extends React.Component {
   render () {
     const sites = [{
       title: 'Facebook',
-      url: 'https://www.facebook.com/i3thuan5//',
+      url: 'https://www.facebook.com/i3thuan5/',
     },
     {
       title: 'Github',
-      url: 'https://xn--v0qr21b.xn--kpry57d/',
+      url: 'https://github.com/i3thuan5/tau3_phah4-ji7',
     },
     {
       title: '意傳文化科技',
