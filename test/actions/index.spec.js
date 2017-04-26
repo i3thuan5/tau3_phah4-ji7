@@ -182,18 +182,19 @@ describe("Action", () => {
 
     const expectActions = [
       { type: REQUEST_HANLO, 語句: "逐家" },
-      { type: RECIEVE_ERROR_HANLO, 語句: "逐家", 
+      { type: RECIEVE_ERROR_HANLO,
+        語句: "逐家",
         error: {
-        "message": "Bad request",
-        "name": "SuperagentPromiseError",
-        "originalError": "Error: 你糗了你！"
-        }
+          message: "Bad request",
+          name: "SuperagentPromiseError",
+          originalError: "Error: 你糗了你！",
+        },
       }];
 
     return store.dispatch(遠端查詢("逐家"))
       .then(() => {
         expect(store.getActions()[0]).to.eql(expectActions[0]);
-        expect(store.getActions()[1]).to.have.deep.property('error');
+        expect(store.getActions()[1]).to.have.deep.property("error");
       });
   });
 });
