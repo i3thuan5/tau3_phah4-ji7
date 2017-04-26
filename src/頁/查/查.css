@@ -1,6 +1,10 @@
-.main{
-	margin:8px 0px;
+.ui.form {
+  margin-bottom: 1rem;
 }
-textarea{
-	width:100%;
+.ui.form textarea {
+  font-size: 2rem;
+  resize: none;
+}
+.ui.button {
+  margin: 10px 0;
 }

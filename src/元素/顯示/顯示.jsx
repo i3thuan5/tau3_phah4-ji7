@@ -13,14 +13,14 @@ class 顯示 extends React.Component {
 
     let 顯示標音 = 綜合標音.map(
       (綜音, i)=> (
-        <div key={i}>
+        <div key={i} className='app block'>
           <合成結果 語句={綜音.分詞}/>
           <span>{綜音[選項]}</span>
         </div>
       )
     );
     return (
-        <div className='main'>
+        <div>
           {顯示標音}
         </div>
       );

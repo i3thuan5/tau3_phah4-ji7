@@ -5,6 +5,7 @@ import Debug from 'debug';
 import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
 import { 後端網址 } from '../../後端網址';
 import 顯示 from '../顯示/顯示';
+import './翻譯結果.css';
 
 var debug = Debug('tau3:標漢字音標結果');
 
