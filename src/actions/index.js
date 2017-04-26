@@ -17,9 +17,10 @@ export const 收到遠端查詢 = (語句, body) => ({
   查詢結果: body,
 });
 
-export const 遠端查詢發生錯誤 = 語句 => ({
+export const 遠端查詢發生錯誤 = (語句, error) => ({
   type: RECIEVE_ERROR_HANLO,
   語句,
+  error,
 });
 
 export const 遠端查詢 = 語句 => (dispatch) => {
@@ -31,7 +32,7 @@ export const 遠端查詢 = 語句 => (dispatch) => {
       查詢語句: 語句.trim(),
     })
     .then(({ body }) => dispatch(收到遠端查詢(語句, body)))
-    .catch(_error => dispatch(遠端查詢發生錯誤(語句)));
+    .catch(error => dispatch(遠端查詢發生錯誤(語句, error)));
 };
 
 export const 是否可以請求查詢 = (state, 語句) => {
@@ -47,4 +48,5 @@ export const 查詢語句 = 語句 => (dispatch, getState) => {
   if (是否可以請求查詢(getState(), 語句)) {
     return dispatch(遠端查詢(語句));
   }
+  return null;
 };
