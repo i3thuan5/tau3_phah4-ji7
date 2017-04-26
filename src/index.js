@@ -1,26 +1,26 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
-import Debug from 'debug';
-import 網站 from './網站/網站';
-import 查 from './頁/查/查';
-import reducer from './reducers';
+import React from "react";
+import { render } from "react-dom";
+import { Router, Route, IndexRoute, browserHistory } from "react-router";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import createLogger from "redux-logger";
+import Debug from "debug";
+import 網站 from "./網站/網站";
+import 查 from "./頁/查/查";
+import reducer from "./reducers";
 
-Debug.enable('tau3:*');
+Debug.enable("tau3:*");
 
-const root = document.getElementById('app');
+const root = document.getElementById("app");
 const middlewares = [thunk];
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   middlewares.push(createLogger);
 }
 
 const store = createStore(
   reducer,
-  applyMiddleware(...middlewares)
+  applyMiddleware(...middlewares),
 );
 
 render(
@@ -35,5 +35,5 @@ render(
           </Route>
       </Router>
   </Provider>,
-  root
+  root,
 );

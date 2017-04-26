@@ -1,29 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Debug from 'debug';
-import 合成結果 from '../合成/合成結果';
+import React from "react";
+import PropTypes from "prop-types";
+import Debug from "debug";
+import 合成結果 from "../合成/合成結果";
 
-var debug = Debug('tau3:顯示');
+const debug = Debug("tau3:顯示");
 
 class 顯示 extends React.Component {
-  render () {
+  render() {
     let { 查詢結果, 選項 } = this.props;
-    let 綜合標音 = 查詢結果.綜合標音 || [];
-    選項 = 選項 || '分詞';
+    const 綜合標音 = 查詢結果.綜合標音 || [];
+    選項 = 選項 || "分詞";
 
-    let 顯示標音 = 綜合標音.map(
-      (綜音, i)=> (
+    const 顯示標音 = 綜合標音.map(
+      (綜音, i) => (
         <div key={i} className='app block'>
           <合成結果 語句={綜音.分詞}/>
           <span>{綜音[選項]}</span>
         </div>
-      )
+      ),
     );
     return (
         <div>
           {顯示標音}
         </div>
-      );
+    );
   }
 }
 

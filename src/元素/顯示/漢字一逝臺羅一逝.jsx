@@ -1,17 +1,17 @@
-import React from 'react';
-import superagent from 'superagent-bluebird-promise';
-import Debug from 'debug';
-import 合成結果 from '../合成/合成結果';
+import React from "react";
+import superagent from "superagent-bluebird-promise";
+import Debug from "debug";
+import 合成結果 from "../合成/合成結果";
 
-var debug = Debug('tau3:漢字一逝臺羅一逝');
+const debug = Debug("tau3:漢字一逝臺羅一逝");
 
 export default class 漢字一逝臺羅一逝 extends React.Component {
 
-  render () {
-    let { 查詢結果 } = this.props;
+  render() {
+    const { 查詢結果 } = this.props;
 
-    let 綜合標音 = 查詢結果.綜合標音.map(
-      (綜音, i)=> (
+    const 綜合標音 = 查詢結果.綜合標音.map(
+      (綜音, i) => (
         <table key={i} className='app table'>
           <tbody>
             <tr>
@@ -28,13 +28,13 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
             </tr>
           </tbody>
         </table>
-      )
+      ),
     );
     return (
         <div>
           {綜合標音}
         </div>
-      );
+    );
   }
 }
 
