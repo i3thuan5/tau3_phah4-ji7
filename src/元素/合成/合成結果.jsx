@@ -1,10 +1,8 @@
 import React from "react";
-import Debug from "debug";
+import PropTypes from "prop-types";
 import { 後端網址, 語音合成 } from "../../後端網址";
 
-const debug = Debug("tau3:合成結果");
-
-export default class 合成結果 extends React.Component {
+class 合成結果 extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.語句 === this.props.語句) return;
@@ -32,3 +30,10 @@ export default class 合成結果 extends React.Component {
     );
   }
 }
+
+
+合成結果.propTypes = {
+  語句: PropTypes.string.isRequired,
+};
+
+export default 合成結果;

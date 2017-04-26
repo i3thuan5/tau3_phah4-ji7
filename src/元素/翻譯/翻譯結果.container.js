@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import 翻譯結果 from "./翻譯結果";
-import { 查詢語句 } from "../../actions";
 
 const matchStateToProps = state => ({
   腔口: "閩南語",

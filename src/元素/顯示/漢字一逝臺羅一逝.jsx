@@ -16,7 +16,7 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
           <tbody>
             <tr>
               <td>
-                <合成結果 後端網址={this.props.後端網址}
+                <合成結果 
                   腔口={this.props.腔口}
                   語句={綜音.分詞}/>
               </td>
