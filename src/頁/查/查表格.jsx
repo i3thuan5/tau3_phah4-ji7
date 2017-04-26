@@ -1,16 +1,17 @@
 import React from "react";
 import { browserHistory } from "react-router";
-import Debug from "debug";
+import PropTypes from "prop-types";
 import "./查.css";
 
-const debug = Debug("tau3:查表格");
+const 更新網址 = (句) => {
+  browserHistory.replace(`/%E8%AC%9B/${encodeURI(句)}`);
+};
 
-export default class 查表格 extends React.Component {
-
+class 查表格 extends React.Component {
   componentDidMount() {
     const { 語句, requestSearch } = this.props;
     requestSearch(語句);
-    this.更新網址(語句);
+    更新網址(語句);
   }
 
   送出(e) {
@@ -18,11 +19,7 @@ export default class 查表格 extends React.Component {
     const tt = this.refs.tt;
     const { requestSearch } = this.props;
     requestSearch(tt.value);
-    this.更新網址(tt.value);
-  }
-
-  更新網址(語句) {
-    browserHistory.replace(`/%E8%AC%9B/${encodeURI(語句)}`);
+    更新網址(tt.value);
   }
 
   render() {
@@ -44,3 +41,11 @@ export default class 查表格 extends React.Component {
     );
   }
 }
+
+查表格.propTypes = {
+  語句: PropTypes.string.isRequired,
+  正在查詢: PropTypes.bool.isRequired,
+  requestSearch: PropTypes.func.isRequired,
+};
+
+export default 查表格;

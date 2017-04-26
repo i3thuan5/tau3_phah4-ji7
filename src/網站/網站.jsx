@@ -1,11 +1,9 @@
 import React from "react";
-import Debug from "debug";
+import PropTypes from "prop-types";
 import { Layout } from "demo-ui";
 import 頁尾 from "./頁尾";
 
-const debug = Debug("tau3:網站");
-
-export default class 網站 extends React.Component {
+class 網站 extends React.Component {
 
   render() {
     const { ku } = this.props.params;
@@ -26,3 +24,11 @@ export default class 網站 extends React.Component {
   }
 }
 
+網站.propTypes = {
+  params: PropTypes.arrayOf(PropTypes.shape({
+    ku: PropTypes.string.isRequired,
+  })),
+  children: PropTypes.node.isRequired,
+};
+
+export default 網站;

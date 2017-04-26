@@ -1,6 +1,5 @@
 import nock from "nock";
 import { expect } from "chai";
-import sinon from "sinon";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import {
@@ -28,7 +27,7 @@ describe("Action", () => {
         查詢結果: {},
       },
     });
-    expect(是否可以請求查詢(store.getState(), 語句)).to.be.true;
+    expect(是否可以請求查詢(store.getState(), 語句)).to.equal(true);
   });
 
   it("stops invalid search", () => {
@@ -40,7 +39,7 @@ describe("Action", () => {
         查詢結果: {},
       },
     });
-    expect(是否可以請求查詢(store.getState(), 語句)).to.be.false;
+    expect(是否可以請求查詢(store.getState(), 語句)).to.equal(false);
   });
 
   it("stops same search", () => {
@@ -52,7 +51,7 @@ describe("Action", () => {
         查詢結果: {},
       },
     });
-    expect(是否可以請求查詢(store.getState(), 語句)).to.be.false;
+    expect(是否可以請求查詢(store.getState(), 語句)).to.equal(false);
   });
 
   it("creates RECIEVE_HANLO when fetching data is done", () => {

@@ -18,7 +18,7 @@ describe("元素", () => {
   describe("查表格", () => {
     it("搜尋中鎖住按鈕", () => {
       const { button } = setup("逐家tsò-hué來chhit4-tho5！", true);
-      expect(button.hasClass("disabled")).to.be.true;
+      expect(button.hasClass("disabled")).to.equal(true);
     });
   });
 });

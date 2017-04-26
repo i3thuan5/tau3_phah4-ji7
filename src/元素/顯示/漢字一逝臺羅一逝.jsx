@@ -1,14 +1,11 @@
 import React from "react";
-import superagent from "superagent-bluebird-promise";
-import Debug from "debug";
+import PropTypes from "prop-types";
 import 合成結果 from "../合成/合成結果";
 
-const debug = Debug("tau3:漢字一逝臺羅一逝");
-
-export default class 漢字一逝臺羅一逝 extends React.Component {
+class 漢字一逝臺羅一逝 extends React.Component {
 
   render() {
-    const { 查詢結果 } = this.props;
+    const { 腔口, 查詢結果 } = this.props;
 
     const 綜合標音 = 查詢結果.綜合標音.map(
       (綜音, i) => (
@@ -16,8 +13,8 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
           <tbody>
             <tr>
               <td>
-                <合成結果 
-                  腔口={this.props.腔口}
+                <合成結果
+                  腔口={腔口}
                   語句={綜音.分詞}/>
               </td>
               <td>{綜音.漢字}</td>
@@ -38,3 +35,11 @@ export default class 漢字一逝臺羅一逝 extends React.Component {
   }
 }
 
+漢字一逝臺羅一逝.propTypes = {
+  查詢結果: PropTypes.shape({
+    綜合標音: PropTypes.array.isRequired,
+  }).isRequired,
+  腔口: PropTypes.string.isRequired,
+};
+
+export default 漢字一逝臺羅一逝;

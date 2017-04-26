@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import Debug from "debug";
 import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
 import 顯示 from "../顯示/顯示";
 import "./翻譯結果.css";
-
-const debug = Debug("tau3:標漢字音標結果");
 
 class 翻譯結果 extends React.Component {
   render() {
@@ -34,7 +31,7 @@ class 翻譯結果 extends React.Component {
             </TabList>
             <TabPanel>
                 <漢字一逝臺羅一逝
-                  腔口={this.props.腔口}
+                  腔口={腔口}
                   查詢結果={查詢結果}/>
             </TabPanel>
             <TabPanel>
