@@ -16,7 +16,7 @@ class 查 extends React.Component {
 }
 
 查.propTypes = {
-  語句: PropTypes.string.isRequired,
+  語句: PropTypes.string,
 };
 
 export default 查;
