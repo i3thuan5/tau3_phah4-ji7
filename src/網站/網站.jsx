@@ -1,14 +1,12 @@
-import React from 'react';
-import Debug from 'debug';
-import { Layout } from 'demo-ui';
-import 頁尾 from './頁尾';
+import React from "react";
+import PropTypes from "prop-types";
+import { Layout } from "demo-ui";
+import 頁尾 from "./頁尾";
 
-var debug = Debug('tau3:網站');
+class 網站 extends React.Component {
 
-export default class 網站 extends React.Component {
-
-  render () {
-    let { ku } = this.props.params;
+  render() {
+    const { ku } = this.props.params;
 
     return (
         <Layout>
@@ -16,13 +14,21 @@ export default class 網站 extends React.Component {
             React.cloneElement(
               this.props.children,
               {
-                語句: ku || '逐家tsò-hué來chhit4-tho5！',
-              }
+                語句: ku || "逐家tsò-hué來chhit4-tho5！",
+              },
             )
           }
           <頁尾/>
         </Layout>
-      );
+    );
   }
 }
 
+網站.propTypes = {
+  params: PropTypes.shape({
+    ku: PropTypes.string.isRequired,
+  }),
+  children: PropTypes.node.isRequired,
+};
+
+export default 網站;

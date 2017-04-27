@@ -1,32 +1,29 @@
-import React from 'react';
-import { browserHistory } from 'react-router';
-import Debug from 'debug';
-import './查.css';
+import React from "react";
+import { browserHistory } from "react-router";
+import PropTypes from "prop-types";
+import "./查.css";
 
-var debug = Debug('tau3:查表格');
+const 更新網址 = (句) => {
+  browserHistory.replace(`/%E8%AC%9B/${encodeURI(句)}`);
+};
 
-export default class 查表格 extends React.Component {
-
+class 查表格 extends React.Component {
   componentDidMount() {
-    let { 語句, requestSearch } = this.props;
+    const { 語句, requestSearch } = this.props;
     requestSearch(語句);
-    this.更新網址(語句);
+    更新網址(語句);
   }
 
-  送出 (e) {
+  送出(e) {
     e.preventDefault();
-    let tt = this.refs.tt;
-    let { requestSearch } = this.props;
+    const tt = this.refs.tt;
+    const { requestSearch } = this.props;
     requestSearch(tt.value);
-    this.更新網址(tt.value);
+    更新網址(tt.value);
   }
 
-  更新網址(語句) {
-    browserHistory.replace('/%E8%AC%9B/' +  encodeURI(語句));
-  }
-
-  render () {
-    let { 語句, 正在查詢 } = this.props;
+  render() {
+    const { 語句, 正在查詢 } = this.props;
     return (
       <form className='ui form'
         onSubmit={this.送出.bind(this)}>
@@ -36,11 +33,19 @@ export default class 查表格 extends React.Component {
         <div className='app clearing'>
         <button type='submit'
           className={
-          'ui huge primary right floated ' +
-          (正在查詢 ? 'disabled' : '') +
-          ' button'}>GO</button>
+          `ui huge primary right floated ${
+          正在查詢 ? "disabled" : ""
+          } button`}>GO</button>
         </div>
       </form>
     );
   }
 }
+
+查表格.propTypes = {
+  語句: PropTypes.string.isRequired,
+  正在查詢: PropTypes.bool.isRequired,
+  requestSearch: PropTypes.func.isRequired,
+};
+
+export default 查表格;

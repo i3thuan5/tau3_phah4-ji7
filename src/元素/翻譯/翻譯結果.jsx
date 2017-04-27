@@ -1,18 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Debug from 'debug';
-import 漢字一逝臺羅一逝 from '../顯示/漢字一逝臺羅一逝';
-import { 後端網址 } from '../../後端網址';
-import 顯示 from '../顯示/顯示';
-import './翻譯結果.css';
-
-var debug = Debug('tau3:標漢字音標結果');
+import React from "react";
+import PropTypes from "prop-types";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
+import 顯示 from "../顯示/顯示";
+import "./翻譯結果.css";
 
 class 翻譯結果 extends React.Component {
-  render () {
-    let { 腔口, 正在查詢, 查詢結果 } = this.props;
-    let 發生錯誤 = 查詢結果.發生錯誤 || false;
+  render() {
+    const { 腔口, 正在查詢, 查詢結果 } = this.props;
+    const 發生錯誤 = 查詢結果.發生錯誤 || false;
 
     return (
         <div>
@@ -35,8 +31,7 @@ class 翻譯結果 extends React.Component {
             </TabList>
             <TabPanel>
                 <漢字一逝臺羅一逝
-                  後端網址={this.props.後端網址}
-                  腔口={this.props.腔口}
+                  腔口={腔口}
                   查詢結果={查詢結果}/>
             </TabPanel>
             <TabPanel>
@@ -50,7 +45,7 @@ class 翻譯結果 extends React.Component {
             </TabPanel>
           </Tabs>
         </div>
-      );
+    );
   }
 }
 
@@ -60,6 +55,7 @@ class 翻譯結果 extends React.Component {
 
     綜合標音: PropTypes.array.isRequired,
   }).isRequired,
+  腔口: PropTypes.string.isRequired,
 };
 
 export default 翻譯結果;
