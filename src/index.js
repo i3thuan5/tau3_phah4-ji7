@@ -9,6 +9,7 @@ import Debug from "debug";
 import 網站 from "./網站/網站";
 import 查 from "./頁/查/查";
 import reducer from "./reducers";
+import '../fonts/fontello.css';
 
 Debug.enable("tau3:*");
 

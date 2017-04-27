@@ -24,7 +24,7 @@ class 合成結果 extends React.Component {
           </audio>
           <button onClick={this.play.bind(this)}
             className='ui compact icon massive button'>
-            <i className='icon play'></i>
+            <i className='icon-play'></i>
           </button>
         </span>
     );
