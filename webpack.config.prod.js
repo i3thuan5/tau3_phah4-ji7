@@ -39,7 +39,7 @@ module.exports = {
             loader: "style-loader!css-loader!postcss-loader",
         },
         {
-            test: /\.(png|jpg|gif|svg)$/,
+            test: /\.(png|jpg|gif|svg|woff|woff2|ttf|eot)$/,
             loader: "url-loader?limit=1",
         },
         {
