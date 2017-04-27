@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { 後端網址, 語音合成 } from "../../後端網址";
+import '../../../fonts/fontello.css';
 
 class 合成結果 extends React.Component {
 
