@@ -54,6 +54,7 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
+            <div className="ui stackable four large basic buttons">
             <複製鈕 copyOnClick={
               this.複製.bind(this, 複製內容.漢字臺羅)
             } title="漢字臺羅"/>
@@ -66,6 +67,7 @@ class 翻譯結果 extends React.Component {
             <複製鈕 copyOnClick={
               this.複製.bind(this, 複製內容.分詞)
             } title="分詞"/>
+            </div>
             <漢字一逝臺羅一逝
                     腔口={腔口}
                     查詢結果={查詢結果}/>
