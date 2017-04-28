@@ -39,6 +39,11 @@ describe("元素", () => {
     };
     expect(計算複製內容(綜合標音)).to.eql(expectResult);
   });
+  it("計算空複製內容", () => {
+    const 綜合標音 = [];
+    const expectResult = [];
+    expect(計算複製內容(綜合標音)).to.eql(expectResult);
+  });
   it("計算多行複製內容", () => {
     const 綜合標音 = [{
       漢字: "1",

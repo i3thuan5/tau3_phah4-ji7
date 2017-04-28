@@ -6,8 +6,11 @@ import 顯示 from "../顯示/顯示";
 import "./翻譯結果.css";
 import 複製鈕 from "../複製鈕/複製鈕";
 
-export const 計算複製內容 = (綜合標音 = []) =>
-   綜合標音
+export const 計算複製內容 = (綜合標音 = []) => {
+  if (!綜合標音 || 綜合標音.length < 1) {
+    return 綜合標音;
+  }
+  return 綜合標音
   .map((item) => {
     const 漢字 = item.漢字.replace(/ /g, "");
     return {
@@ -21,6 +24,7 @@ export const 計算複製內容 = (綜合標音 = []) =>
     漢字: [acc.漢字, item.漢字].join("\n"),
     臺羅: [acc.臺羅, item.臺羅].join("\n"),
   }));
+};
 
 class 翻譯結果 extends React.Component {
   點複製(內容) {
@@ -50,9 +54,11 @@ class 翻譯結果 extends React.Component {
 
     const 複製鈕群 = [];
     for (const key in 複製內容) {
-      複製鈕群.push(<複製鈕 copyOnClick={
+      複製鈕群.push(
+        <複製鈕 key={key} copyOnClick={
           this.點複製.bind(this, 複製內容[key])
-        } title={key}/>);
+          } title={key}/>,
+      );
     }
 
     return (
