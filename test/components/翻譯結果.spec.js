@@ -54,4 +54,31 @@ describe("元素", () => {
     };
     expect(計算複製內容(綜合標音)).to.eql(expectResult);
   });
+  it("移除漢字之間空白", () => {
+    const 綜合標音 = [{
+      漢字: "逐家 做伙 來𨑨迌 ！",
+      臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
+    }];
+    const expectResult = {
+      漢字: "逐家做伙來𨑨迌！",
+      臺羅: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
+      漢字臺羅: "逐家做伙來𨑨迌！\nTa̍k-ke tsò-hué lâi-tshit-thô ！",
+    };
+    expect(計算複製內容(綜合標音)).to.eql(expectResult);
+  });
+  it("移除多行漢字之間空白", () => {
+    const 綜合標音 = [{
+      漢字: "逐家 做伙 來𨑨迌 ！",
+      臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
+    }, {
+      漢字: "逐家 做伙 來𨑨迌 ！",
+      臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
+    }];
+    const expectResult = {
+      漢字: "逐家做伙來𨑨迌！\n逐家做伙來𨑨迌！",
+      臺羅: "Ta̍k-ke tsò-hué lâi-tshit-thô ！\nTa̍k-ke tsò-hué lâi-tshit-thô ！",
+      漢字臺羅: "逐家做伙來𨑨迌！\nTa̍k-ke tsò-hué lâi-tshit-thô ！\n逐家做伙來𨑨迌！\nTa̍k-ke tsò-hué lâi-tshit-thô ！",
+    };
+    expect(計算複製內容(綜合標音)).to.eql(expectResult);
+  });
 });

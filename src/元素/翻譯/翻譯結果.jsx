@@ -8,11 +8,14 @@ import 複製鈕 from "../複製鈕/複製鈕";
 
 export const 計算複製內容 = (綜合標音 = []) =>
    綜合標音
-  .map(item => ({
-    漢字臺羅: [item.漢字, item.臺羅閏號調].join("\n"),
-    臺羅: item.臺羅閏號調,
-    漢字: item.漢字,
-  }))
+  .map((item) => {
+    const 漢字 = item.漢字.replace(/ /g, "");
+    return {
+      漢字臺羅: [漢字, item.臺羅閏號調].join("\n"),
+      臺羅: item.臺羅閏號調,
+      漢字,
+    };
+  })
   .reduce((acc, item) => ({
     漢字臺羅: [acc.漢字臺羅, item.漢字臺羅].join("\n"),
     漢字: [acc.漢字, item.漢字].join("\n"),
@@ -51,9 +54,6 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
-            <漢字一逝臺羅一逝
-                    腔口={腔口}
-                    查詢結果={查詢結果}/>
             <複製鈕 copyOnClick={
               this.複製.bind(this, 複製內容.漢字臺羅)
             } title="漢字臺羅"/>
@@ -66,6 +66,9 @@ class 翻譯結果 extends React.Component {
             <複製鈕 copyOnClick={
               this.複製.bind(this, 複製內容.分詞)
             } title="分詞"/>
+            <漢字一逝臺羅一逝
+                    腔口={腔口}
+                    查詢結果={查詢結果}/>
           </div>
         </div>
     );
