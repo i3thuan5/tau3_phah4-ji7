@@ -68,7 +68,7 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
-            <div className="ui stackable four large basic buttons">
+            <div className="ui stackable four large teal buttons">
             {複製鈕群}
             </div>
             <漢字一逝臺羅一逝

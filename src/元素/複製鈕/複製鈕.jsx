@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const 複製鈕 = ({ copyOnClick, title, 複製內容 }) => (
+const 複製鈕 = ({ copyOnClick, title, 複製內容, icon }) => (
     <button className="ui button"
       onClick={copyOnClick}>
-      <i className="icon-play"></i>
+      <i className="icon-docs"></i>
       {title}
     </button>
   );
