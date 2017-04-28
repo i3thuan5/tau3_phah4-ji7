@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import 合成結果 from "../合成/合成結果";
+import "./漢字一逝臺羅一逝.css";
 
 class 漢字一逝臺羅一逝 extends React.Component {
 
