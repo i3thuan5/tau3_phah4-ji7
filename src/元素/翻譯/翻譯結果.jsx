@@ -23,7 +23,7 @@ export const 計算複製內容 = (綜合標音 = []) =>
   }));
 
 class 翻譯結果 extends React.Component {
-  複製(內容) {
+  點複製(內容) {
     const textField = document.createElement("textarea");
     textField.innerText = 內容;
     document.body.appendChild(textField);
@@ -32,13 +32,27 @@ class 翻譯結果 extends React.Component {
     textField.remove();
   }
 
-  render() {
-    const { 腔口, 正在查詢, 查詢結果 } = this.props;
+  取得複製內容() {
+    const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
     let 複製內容 = {};
     if (!正在查詢 && !發生錯誤) {
       複製內容 = 計算複製內容(查詢結果.綜合標音);
       複製內容.分詞 = 查詢結果.分詞;
+    }
+    return 複製內容;
+  }
+
+  render() {
+    const { 腔口, 正在查詢, 查詢結果 } = this.props;
+    const 發生錯誤 = 查詢結果.發生錯誤 || false;
+    const 複製內容 = this.取得複製內容();
+
+    const 複製鈕群 = [];
+    for (const key in 複製內容) {
+      複製鈕群.push(<複製鈕 copyOnClick={
+          this.點複製.bind(this, 複製內容[key])
+        } title={key}/>);
     }
 
     return (
@@ -55,18 +69,7 @@ class 翻譯結果 extends React.Component {
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
             <div className="ui stackable four large basic buttons">
-            <複製鈕 copyOnClick={
-              this.複製.bind(this, 複製內容.漢字臺羅)
-            } title="漢字臺羅"/>
-            <複製鈕 copyOnClick={
-              this.複製.bind(this, 複製內容.漢字)
-            } title="漢字"/>
-            <複製鈕 copyOnClick={
-              this.複製.bind(this, 複製內容.臺羅)
-            } title="臺羅"/>
-            <複製鈕 copyOnClick={
-              this.複製.bind(this, 複製內容.分詞)
-            } title="分詞"/>
+            {複製鈕群}
             </div>
             <漢字一逝臺羅一逝
                     腔口={腔口}
