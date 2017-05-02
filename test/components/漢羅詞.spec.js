@@ -8,7 +8,7 @@ const setup = ({ 漢字詞 = "", 臺羅閏號調 = "" }) => {
     <漢羅詞 漢字詞={漢字詞}
       臺羅閏號調={臺羅閏號調}/>,
     );
-  return component.html();
+  return component.children().map(node => node.text());
 };
 
 describe("Component", () => {
@@ -18,9 +18,10 @@ describe("Component", () => {
         臺羅閏號調: "Ta̍k-ke",
         漢字詞: "逐家",
       });
-      expect(html)
-      .to
-      .equal("<ruby>逐家<rt>Ta̍k-ke</rt></ruby>");
+      expect(html).to.eql([
+        "Ta̍k-ke",
+        "逐家",
+      ]);
     });
   });
 });

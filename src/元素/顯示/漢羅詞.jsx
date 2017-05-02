@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./漢羅詞.css";
 
 const 漢羅詞 = ({ 漢字詞, 臺羅閏號調 }) => (
-  <ruby>{漢字詞}
-    <rt>{臺羅閏號調}</rt>
+  <ruby className="app ruby">
+    {臺羅閏號調}
+    <rt>{漢字詞}</rt>
   </ruby>
 );
 
