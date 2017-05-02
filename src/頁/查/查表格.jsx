@@ -43,9 +43,9 @@ class 查表格 extends React.Component {
 }
 
 查表格.propTypes = {
-  語句: PropTypes.string.isRequired,
-  正在查詢: PropTypes.bool.isRequired,
-  requestSearch: PropTypes.func.isRequired,
+  語句: PropTypes.string,
+  正在查詢: PropTypes.bool,
+  requestSearch: PropTypes.func,
 };
 
 export default 查表格;
