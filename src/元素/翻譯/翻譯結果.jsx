@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
-import 顯示 from "../顯示/顯示";
-import "./翻譯結果.css";
 import 複製鈕 from "../複製鈕/複製鈕";
+import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
   if (!綜合標音 || 綜合標音.length < 1) {
@@ -27,16 +25,8 @@ export const 計算複製內容 = (綜合標音 = []) => {
 };
 
 class 翻譯結果 extends React.Component {
-  點複製(內容) {
-    const textField = document.createElement("textarea");
-    textField.innerText = 內容;
-    document.body.appendChild(textField);
-    textField.select();
-    document.execCommand("copy");
-    textField.remove();
-  }
 
-  取得複製內容() {
+  取得複製鈕群() {
     const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
     let 複製內容 = {};
@@ -44,22 +34,19 @@ class 翻譯結果 extends React.Component {
       複製內容 = 計算複製內容(查詢結果.綜合標音);
       複製內容.分詞 = 查詢結果.分詞;
     }
-    return 複製內容;
+    const 複製鈕群 = [];
+    Object.keys(複製內容).forEach((key) => {
+      複製鈕群.push(
+        <複製鈕 key={key} 複製內容={複製內容[key]} title={key}/>,
+      );
+    });
+    return 複製鈕群;
   }
 
   render() {
     const { 腔口, 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
-    const 複製內容 = this.取得複製內容();
-
-    const 複製鈕群 = [];
-    for (const key in 複製內容) {
-      複製鈕群.push(
-        <複製鈕 key={key} copyOnClick={
-          this.點複製.bind(this, 複製內容[key])
-          } title={key}/>,
-      );
-    }
+    const 複製鈕群 = this.取得複製鈕群();
 
     return (
         <div>
