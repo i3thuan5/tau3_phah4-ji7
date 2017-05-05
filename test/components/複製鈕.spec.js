@@ -4,15 +4,14 @@ import { shallow } from "enzyme";
 import sinon from "sinon";
 import 複製鈕 from "../../src/元素/複製鈕/複製鈕";
 
-const argv = {
+const initArgv = {
   複製內容: "",
   title: "sui2",
 };
 
-const setup = (argv = argv) => {
-  const copyOnClick = sinon.spy();
+const setup = (argv = initArgv) => {
   const component = shallow(
-    <複製鈕 {...argv} copyOnClick={copyOnClick}/>,
+    <複製鈕 {...argv}/>,
     );
   return {
     component,
@@ -25,10 +24,6 @@ describe("Component", () => {
     it("renders 複製鈕", () => {
       const { button } = setup();
       expect(button).to.have.length(1);
-    });
-    it("click ok", () => {
-      const { button } = setup();
-      expect(button.simulate("click")).to.have.length(1);
     });
   });
 });
