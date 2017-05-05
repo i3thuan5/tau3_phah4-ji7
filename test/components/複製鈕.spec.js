@@ -1,7 +1,6 @@
 import React from "react";
 import { expect } from "chai";
 import { shallow } from "enzyme";
-import sinon from "sinon";
 import 複製鈕 from "../../src/元素/複製鈕/複製鈕";
 
 const initArgv = {

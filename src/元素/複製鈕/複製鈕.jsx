@@ -1,22 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const 點複製 = (內容) => {
-  const textField = document.createElement("textarea");
-  textField.innerText = 內容;
-  document.body.appendChild(textField);
-  textField.select();
-  document.execCommand("copy");
-  textField.remove();
-};
+class 複製鈕 extends React.Component {
+  點複製() {
+    const { 複製內容 } = this.props;
+    const textField = document.createElement("textarea");
+    textField.innerText = 複製內容;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand("copy");
+    textField.remove();
+  }
 
-const 複製鈕 = ({ 複製內容, title }) => (
-    <button className="ui button"
-      onClick={點複製.bind(this, 複製內容)}>
-      <i className="icon-docs"></i>
-      {title}
-    </button>
-  );
+  render() {
+    const { title } = this.props;
+    return (
+      <button className="ui button"
+        onClick={this.點複製.bind(this)}>
+        <i className="icon-docs"></i>
+        {title}
+      </button>
+    );
+  }
+}
 
 複製鈕.propTypes = {
   複製內容: PropTypes.string,
