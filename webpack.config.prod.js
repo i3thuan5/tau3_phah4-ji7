@@ -2,54 +2,57 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-    devtool: "source-map",
-    entry: [
-        "babel-polyfill",
-        "./src/index",
+  devtool: "source-map",
+  entry: [
+    "babel-polyfill",
+    "./src/index",
+  ],
+  output: {
+    path: path.join(__dirname, "build"),
+    filename: "bundle.js",
+    publicPath: "/",
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production"),
+      },
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false,
+      },
+      sourceMap: true,
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+  ],
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        use: ["babel-loader", "strict-loader"],
+        include: path.join(__dirname, "src"),
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
+      {
+        test: /\.(png|jpg|gif|svg|woff|woff2|ttf|eot)$/,
+        use: {
+          loader: "url-loader",
+          options: { limit: 1 },
+        },
+      },
+      {
+        test: /\.html$/,
+        use: "html-loader",
+      },
     ],
-    output: {
-        path: path.join(__dirname, "build"),
-        filename: "bundle.js",
-        publicPath: "/",
-    },
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production"),
-            },
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false,
-            },
-        }),
-    ],
-    resolve: {
-        extensions: ["", ".js", ".jsx"],
-    },
-    module: {
-        loaders: [{
-            test: /\.jsx?/,
-            loaders: ["babel", "strict"],
-            include: path.join(__dirname, "src"),
-        },
-        {
-            test: /\.css$/,
-            loader: "style-loader!css-loader!postcss-loader",
-        },
-        {
-            test: /\.(png|jpg|gif|svg|woff|woff2|ttf|eot)$/,
-            loader: "url-loader?limit=1",
-        },
-        {
-            test: /\.json$/,
-            loader: "json-loader",
-        },
-        {
-            test: /\.html$/,
-            loader: "html-loader",
-        },
-        ],
-    },
+  },
 };
