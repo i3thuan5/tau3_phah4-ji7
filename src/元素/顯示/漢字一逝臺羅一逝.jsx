@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { HanLoSu } from "demo-ui";
 import 合成結果 from "../合成/合成結果";
-import 漢羅詞 from "./漢羅詞";
-import "./漢字一逝臺羅一逝.css";
 
 class 漢字一逝臺羅一逝 extends React.Component {
 
@@ -14,7 +13,7 @@ class 漢字一逝臺羅一逝 extends React.Component {
         const 漢字陣列 = 綜音.漢字.split(" ");
         const 臺羅陣列 = 綜音.臺羅閏號調.split(" ");
         const 標音陣列 = 漢字陣列.map((漢字, k) => (
-            <漢羅詞 key={k}
+            <HanLoSu key={k}
             漢字詞={漢字}
             臺羅閏號調={臺羅陣列[k]} />
         ));
