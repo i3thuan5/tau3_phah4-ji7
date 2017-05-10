@@ -5,9 +5,9 @@ import { HanLoSu, PlayButton } from "demo-ui";
 class 漢字一逝臺羅一逝 extends React.Component {
 
   render() {
-    const { 查詢結果 } = this.props;
+    const { 綜合標音 } = this.props;
 
-    const 綜合標音 = 查詢結果.綜合標音.map(
+    const 漢羅逝 = 綜合標音.map(
       (綜音, i) => {
         const 漢字陣列 = 綜音.漢字.split(" ");
         const 臺羅陣列 = 綜音.臺羅閏號調.split(" ");
@@ -25,16 +25,15 @@ class 漢字一逝臺羅一逝 extends React.Component {
       });
     return (
         <div>
-          {綜合標音}
+          {漢羅逝}
         </div>
     );
+    return null;
   }
 }
 
 漢字一逝臺羅一逝.propTypes = {
-  查詢結果: PropTypes.shape({
-    綜合標音: PropTypes.array.isRequired,
-  }).isRequired,
+  綜合標音: PropTypes.array.isRequired,
   腔口: PropTypes.string,
 };
 
