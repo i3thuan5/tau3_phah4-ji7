@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { HanLoSu, PlayButton } from "demo-ui";
 
-class 漢字一逝臺羅一逝 extends React.Component {
+class 漢羅一逝 extends React.Component {
 
   render() {
     const { 綜合標音 } = this.props;
@@ -32,9 +32,8 @@ class 漢字一逝臺羅一逝 extends React.Component {
   }
 }
 
-漢字一逝臺羅一逝.propTypes = {
+漢羅一逝.propTypes = {
   綜合標音: PropTypes.array.isRequired,
-  腔口: PropTypes.string,
 };
 
-export default 漢字一逝臺羅一逝;
+export default 漢羅一逝;
