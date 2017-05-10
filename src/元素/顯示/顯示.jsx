@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import 合成結果 from "../合成/合成結果";
+import { PlayButton } from "demo-ui";
 
 class 顯示 extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class 顯示 extends React.Component {
     const 顯示標音 = 綜合標音.map(
       (綜音, i) => (
         <div key={i} className='app block'>
-          <合成結果 語句={綜音.分詞}/>
+          <PlayButton 語句={綜音.分詞}/>
           <span>{綜音[選]}</span>
         </div>
       ),
