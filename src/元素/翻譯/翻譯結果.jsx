@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
 import { CopyButton } from "demo-ui";
+import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
 import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
