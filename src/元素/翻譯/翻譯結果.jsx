@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { CopyButton } from "demo-ui";
 import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
-import 複製鈕 from "../複製鈕/複製鈕";
 import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
@@ -37,7 +37,7 @@ class 翻譯結果 extends React.Component {
     const 複製鈕群 = [];
     Object.keys(複製內容).forEach((key) => {
       複製鈕群.push(
-        <複製鈕 key={key} 複製內容={複製內容[key]} title={key}/>,
+        <CopyButton key={key} 複製內容={複製內容[key]} 按鈕名={key}/>,
       );
     });
     return 複製鈕群;

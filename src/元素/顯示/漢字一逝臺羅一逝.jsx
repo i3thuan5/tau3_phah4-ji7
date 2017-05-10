@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HanLoSu } from "demo-ui";
-import 合成結果 from "../合成/合成結果";
+import { HanLoSu, PlayButton } from "demo-ui";
 
 class 漢字一逝臺羅一逝 extends React.Component {
 
   render() {
-    const { 腔口, 查詢結果 } = this.props;
+    const { 查詢結果 } = this.props;
 
     const 綜合標音 = 查詢結果.綜合標音.map(
       (綜音, i) => {
@@ -19,7 +18,7 @@ class 漢字一逝臺羅一逝 extends React.Component {
         ));
         return (
         <div key={i} className='app block'>
-          <合成結果 腔口={腔口} 語句={綜音.分詞}/>
+          <PlayButton 語句={綜音.分詞}/>
           {標音陣列}
         </div>
         );
@@ -36,7 +35,7 @@ class 漢字一逝臺羅一逝 extends React.Component {
   查詢結果: PropTypes.shape({
     綜合標音: PropTypes.array.isRequired,
   }).isRequired,
-  腔口: PropTypes.string.isRequired,
+  腔口: PropTypes.string,
 };
 
 export default 漢字一逝臺羅一逝;
