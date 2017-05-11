@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CopyButton } from "demo-ui";
-import 漢字一逝臺羅一逝 from "../顯示/漢字一逝臺羅一逝";
+import Container漢羅一逝 from "../顯示/漢羅一逝.container";
 import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
@@ -29,9 +29,10 @@ class 翻譯結果 extends React.Component {
   取得複製鈕群() {
     const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
+    const 綜合標音 = 查詢結果.綜合標音 || [];
     let 複製內容 = {};
     if (!正在查詢 && !發生錯誤) {
-      複製內容 = 計算複製內容(查詢結果.綜合標音);
+      複製內容 = 計算複製內容(綜合標音);
       複製內容.分詞 = 查詢結果.分詞;
     }
     const 複製鈕群 = [];
@@ -44,7 +45,7 @@ class 翻譯結果 extends React.Component {
   }
 
   render() {
-    const { 腔口, 正在查詢, 查詢結果 } = this.props;
+    const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
     const 複製鈕群 = this.取得複製鈕群();
 
@@ -64,9 +65,7 @@ class 翻譯結果 extends React.Component {
             <div className="ui stackable four large teal buttons">
             {複製鈕群}
             </div>
-            <漢字一逝臺羅一逝
-                    腔口={腔口}
-                    查詢結果={查詢結果}/>
+            <Container漢羅一逝/>
           </div>
         </div>
     );
