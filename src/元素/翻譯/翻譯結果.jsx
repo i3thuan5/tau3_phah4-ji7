@@ -29,9 +29,10 @@ class 翻譯結果 extends React.Component {
   取得複製鈕群() {
     const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
+    const 綜合標音 = 查詢結果.綜合標音 || [];
     let 複製內容 = {};
     if (!正在查詢 && !發生錯誤) {
-      複製內容 = 計算複製內容(查詢結果.綜合標音);
+      複製內容 = 計算複製內容(綜合標音);
       複製內容.分詞 = 查詢結果.分詞;
     }
     const 複製鈕群 = [];
@@ -44,9 +45,8 @@ class 翻譯結果 extends React.Component {
   }
 
   render() {
-    const { 腔口, 正在查詢, 查詢結果 } = this.props;
+    const { 正在查詢, 查詢結果 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
-    const 綜合標音 = 查詢結果.綜合標音 || [];
     const 複製鈕群 = this.取得複製鈕群();
 
     return (

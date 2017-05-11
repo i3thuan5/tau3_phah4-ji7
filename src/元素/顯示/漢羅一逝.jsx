@@ -28,7 +28,6 @@ class 漢羅一逝 extends React.Component {
           {漢羅逝}
         </div>
     );
-    return null;
   }
 }
 
