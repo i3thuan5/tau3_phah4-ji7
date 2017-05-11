@@ -2,11 +2,11 @@ import React from "react";
 import { expect } from "chai";
 import { shallow } from "enzyme";
 import { HanLoSu, PlayButton } from "demo-ui";
-import 漢字一逝臺羅一逝 from "../../src/元素/顯示/漢字一逝臺羅一逝";
+import 漢羅一逝 from "../../src/元素/顯示/漢羅一逝";
 
 const setup = (綜合標音 = []) => {
   const component = shallow(
-    <漢字一逝臺羅一逝 綜合標音={綜合標音}/>,
+    <漢羅一逝 綜合標音={綜合標音}/>,
     );
   return {
     component,
@@ -29,6 +29,7 @@ describe("Component", () => {
       const { block } = setup([{
         臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
         漢字: "逐家 做伙 來𨑨迌 ！",
+        語句: "",
       }]);
       expect(block.children(HanLoSu)).to.have.length(4);
     });
@@ -36,6 +37,7 @@ describe("Component", () => {
       const { block } = setup([{
         臺羅閏號調: "Ta̍k-ke",
         漢字: "逐家",
+        語句: "",
       }, {
         臺羅閏號調: "tsò-hué",
         漢字: "做伙",
@@ -50,7 +52,7 @@ describe("Component", () => {
       }]);
       expect(hanlosu.props()).to.eql({
         臺羅閏號調: "Ta̍k-ke",
-        漢字詞: "逐家",
+        漢字: "逐家",
       });
     });
     it("renders 1 PlayButton in a line", () => {

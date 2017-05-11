@@ -13,7 +13,7 @@ class 漢羅一逝 extends React.Component {
         const 臺羅陣列 = 綜音.臺羅閏號調.split(" ");
         const 標音陣列 = 漢字陣列.map((漢字, k) => (
             <HanLoSu key={k}
-            漢字詞={漢字}
+            漢字={漢字}
             臺羅閏號調={臺羅陣列[k]} />
         ));
         return (
