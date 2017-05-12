@@ -1,7 +1,7 @@
 import React from "react";
 import { expect } from "chai";
 import { shallow } from "enzyme";
-import 漢羅一逝 from "../../src/元素/顯示/漢羅一逝";
+import { HanLoTsua } from "demo-ui";
 import 漢羅列表 from "../../src/元素/顯示/漢羅列表";
 
 const setup = (綜合標音 = []) => {
@@ -10,7 +10,7 @@ const setup = (綜合標音 = []) => {
     );
   return {
     component,
-    漢羅逝: component.find(漢羅一逝),
+    漢羅逝: component.find(HanLoTsua),
   };
 };
 

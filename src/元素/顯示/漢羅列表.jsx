@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import 漢羅一逝 from "./漢羅一逝";
+import { HanLoTsua } from "demo-ui";
 
 class 漢羅列表 extends React.Component {
 
@@ -9,7 +9,7 @@ class 漢羅列表 extends React.Component {
     return (
       <div>
       {綜合標音.map((綜音, i) => (
-        <漢羅一逝
+        <HanLoTsua
           key={i}
           漢字={綜音.漢字}
           臺羅閏號調={綜音.臺羅閏號調}
