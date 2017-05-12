@@ -26,7 +26,7 @@ class 網站 extends React.Component {
 
 網站.propTypes = {
   params: PropTypes.shape({
-    ku: PropTypes.string.isRequired,
+    ku: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
 };

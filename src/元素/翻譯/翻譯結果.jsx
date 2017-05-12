@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CopyButton } from "demo-ui";
-import Container漢羅一逝 from "../顯示/漢羅一逝.container";
+import { CopyButton, ButtonStack } from "demo-ui";
+import Container漢羅列表 from "../顯示/漢羅列表.container";
 import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
@@ -62,10 +62,10 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
-            <div className="ui stackable four large teal buttons">
+            <ButtonStack>
             {複製鈕群}
-            </div>
-            <Container漢羅一逝/>
+            </ButtonStack>
+            <Container漢羅列表/>
           </div>
         </div>
     );

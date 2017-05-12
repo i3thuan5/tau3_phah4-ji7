@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
-import 漢羅一逝 from "./漢羅一逝";
+import 漢羅列表 from "./漢羅列表";
+
 
 const matchStateToProps = state => ({
   綜合標音: state.查詢.查詢結果.綜合標音,
 });
 
-const Container漢羅一逝 = connect(
+const Container漢羅列表 = connect(
   matchStateToProps,
-)(漢羅一逝);
+)(漢羅列表);
 
-export default Container漢羅一逝;
+export default Container漢羅列表;
