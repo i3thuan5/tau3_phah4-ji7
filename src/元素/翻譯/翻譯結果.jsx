@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CopyButton } from "demo-ui";
+import { CopyButton, ButtonStack } from "demo-ui";
 import Container漢羅列表 from "../顯示/漢羅列表.container";
 import "./翻譯結果.css";
 
@@ -62,9 +62,9 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
-            <div className="ui stackable four large teal buttons">
+            <ButtonStack>
             {複製鈕群}
-            </div>
+            </ButtonStack>
             <Container漢羅列表/>
           </div>
         </div>
