@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { CopyButton, ButtonStack } from "demo-ui";
 import Container漢羅列表 from "../顯示/漢羅列表.container";
-import "./翻譯結果.css";
 
 export const 計算複製內容 = (綜合標音 = []) => {
   if (!綜合標音 || 綜合標音.length < 1) {
