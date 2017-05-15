@@ -8,7 +8,7 @@ import {
   RECIEVE_ERROR_HANLO,
 } from "../../src/actions/action.type";
 import { 是否可以請求查詢, 遠端查詢 } from "../../src/actions/";
-import { 後端網址, 標漢字音標 } from "../../src/後端網址";
+import API from "../../src/api";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -55,8 +55,8 @@ describe("Action", () => {
   });
 
   it("creates RECIEVE_HANLO when fetching data is done", () => {
-    nock(後端網址)
-    .get(`/${標漢字音標}`)
+    nock(API.網域())
+    .get("/標漢字音標")
     .query({
       查詢腔口: "閩南語",
       查詢語句: "逐家tsò-hué來chhit4-tho5！",
@@ -103,8 +103,8 @@ describe("Action", () => {
   });
 
   it("creates only one RECIEVE_HANLO for breaklines", () => {
-    nock(後端網址)
-    .get(`/${標漢字音標}`)
+    nock(API.網域())
+    .get("/標漢字音標")
     .query({
       查詢腔口: "閩南語",
       查詢語句: "逐家！\n逐家",
@@ -165,8 +165,8 @@ describe("Action", () => {
   });
 
   it("catches 500 error", () => {
-    nock(後端網址)
-    .get(`/${標漢字音標}`)
+    nock(API.網域())
+    .get("/標漢字音標")
     .query({
       查詢腔口: "閩南語",
       查詢語句: "逐家",
