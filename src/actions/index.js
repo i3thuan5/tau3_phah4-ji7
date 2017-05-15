@@ -1,10 +1,11 @@
 import superagent from "superagent-bluebird-promise";
+import API from "../api";
+import { 腔口 } from "../constants";
 import {
   REQUEST_HANLO,
   RECIEVE_HANLO,
   RECIEVE_ERROR_HANLO,
 } from "./action.type";
-import API from "../api";
 
 export const 請求遠端查詢 = 語句 => ({
   type: REQUEST_HANLO,
@@ -28,7 +29,7 @@ export const 遠端查詢 = 語句 => (dispatch) => {
   return superagent
     .get(API.標漢字音標())
     .query({
-      查詢腔口: "閩南語",
+      查詢腔口: 腔口,
       查詢語句: 語句.trim(),
     })
     .then(({ body }) => dispatch(收到遠端查詢(語句, body)))
