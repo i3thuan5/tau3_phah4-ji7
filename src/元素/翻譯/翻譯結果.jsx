@@ -77,7 +77,6 @@ class 翻譯結果 extends React.Component {
 
     綜合標音: PropTypes.array.isRequired,
   }).isRequired,
-  腔口: PropTypes.string.isRequired,
 };
 
 export default 翻譯結果;
