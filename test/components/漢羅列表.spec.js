@@ -3,6 +3,7 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 import { HanLoTsua } from "demo-ui";
 import 漢羅列表 from "../../src/元素/顯示/漢羅列表";
+import { 腔口 } from "../../src/constants";
 
 const setup = (綜合標音 = []) => {
   const component = shallow(
@@ -53,6 +54,7 @@ describe("Component", () => {
       expect(漢羅逝.props()).to.eql({
         臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
         漢字: "逐家",
+        腔口,
         分詞: "sui2",
       });
     });
