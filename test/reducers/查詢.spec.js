@@ -1,16 +1,16 @@
 import { expect } from "chai";
 import 查詢 from "../../src/reducers/查詢";
 
-describe("Reducer", () => {
-  const 初始狀態規範 = {
-    語句: "",
-    正在查詢: false,
-    查詢結果: {
-      分詞: "",
-      綜合標音: [],
-    },
-  };
+const 初始狀態規範 = {
+  語句: "",
+  正在查詢: false,
+  查詢結果: {
+    分詞: "",
+    綜合標音: [],
+  },
+};
 
+describe("Reducer", () => {
   it("has initial state", () => {
     expect(查詢(undefined, {}))
     .to
@@ -102,7 +102,10 @@ describe("Reducer", () => {
   });
 
   it("show info when get action RECIEVE_ERROR_HANLO", () => {
-    expect(查詢(undefined, { type: "RECIEVE_ERROR_HANLO", 語句: "逐家" }))
+    expect(查詢(undefined, {
+      type: "RECIEVE_ERROR_HANLO",
+      語句: "逐家",
+    }))
     .to
     .eql({
       語句: "逐家",
