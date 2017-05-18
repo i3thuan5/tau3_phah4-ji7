@@ -11,6 +11,7 @@ class 漢羅列表 extends React.Component {
       {綜合標音.map((綜音, i) => (
         <HanLoTsua
           key={i}
+          腔口="閩南語"
           漢字={綜音.漢字}
           臺羅閏號調={綜音.臺羅閏號調}
           分詞={綜音.分詞}/>

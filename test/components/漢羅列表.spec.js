@@ -4,9 +4,9 @@ import { shallow } from "enzyme";
 import { HanLoTsua } from "demo-ui";
 import 漢羅列表 from "../../src/元素/顯示/漢羅列表";
 
-const setup = (綜合標音 = []) => {
+const setup = (綜合標音 = [], 腔口 = "閩南語") => {
   const component = shallow(
-    <漢羅列表 綜合標音={綜合標音}/>,
+    <漢羅列表 綜合標音={綜合標音} 腔口={腔口}/>,
     );
   return {
     component,
@@ -21,7 +21,7 @@ describe("Component", () => {
         臺羅閏號調: "Ta̍k-ke",
         漢字: "逐家",
         分詞: "",
-      }]);
+      }], "閩南語");
       expect(漢羅逝).to.have.length(1);
     });
     it("renders 1 漢羅一逝 with space", () => {
@@ -29,7 +29,7 @@ describe("Component", () => {
         臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
         漢字: "逐家 做伙 來𨑨迌 ！",
         分詞: "",
-      }]);
+      }], "閩南語");
       expect(漢羅逝).to.have.length(1);
     });
     it("renders 2 漢羅一逝", () => {
@@ -41,7 +41,7 @@ describe("Component", () => {
         臺羅閏號調: "tsò-hué",
         漢字: "做伙",
         分詞: "",
-      }]);
+      }], "閩南語");
       expect(漢羅逝).to.have.length(2);
     });
     it("passes props to 漢羅一逝", () => {
@@ -49,15 +49,16 @@ describe("Component", () => {
         臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
         漢字: "逐家",
         分詞: "sui2",
-      }]);
+      }], "閩南語");
       expect(漢羅逝.props()).to.eql({
         臺羅閏號調: "Ta̍k-ke tsò-hué lâi-tshit-thô ！",
         漢字: "逐家",
         分詞: "sui2",
+        腔口: "閩南語",
       });
     });
     it("renders none", () => {
-      const { 漢羅逝 } = setup([]);
+      const { 漢羅逝 } = setup([], "閩南語");
       expect(漢羅逝).to.have.length(0);
     });
   });

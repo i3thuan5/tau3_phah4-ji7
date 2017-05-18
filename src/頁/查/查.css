@@ -5,6 +5,12 @@
   font-size: 1.5rem;
   resize: none;
 }
-.ui.button {
+.ui.primary.button {
   margin: 10px 0;
+}
+a.ui.button {
+  margin-right:13px;
+}
+a.ui.button {
+  margin-top:10px;
 }
