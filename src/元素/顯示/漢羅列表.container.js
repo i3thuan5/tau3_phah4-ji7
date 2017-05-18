@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import 漢羅列表 from "./漢羅列表";
 
-
 const matchStateToProps = state => ({
+  腔口: "閩南語",
   綜合標音: state.查詢.查詢結果.綜合標音,
 });
 

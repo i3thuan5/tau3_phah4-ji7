@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CopyButton, ButtonStack } from "demo-ui";
+import { CopyButton,
+  ButtonStack,
+  DownloadButton } from "demo-ui";
 import Container漢羅列表 from "../顯示/漢羅列表.container";
 
 export const 計算複製內容 = (綜合標音 = []) => {
@@ -44,8 +46,9 @@ class 翻譯結果 extends React.Component {
   }
 
   render() {
-    const { 正在查詢, 查詢結果 } = this.props;
+    const { 正在查詢, 查詢結果, 腔口 } = this.props;
     const 發生錯誤 = 查詢結果.發生錯誤 || false;
+    const 分詞 = 查詢結果.分詞 || "";
     const 複製鈕群 = this.取得複製鈕群();
 
     return (
@@ -64,6 +67,11 @@ class 翻譯結果 extends React.Component {
             <ButtonStack>
             {複製鈕群}
             </ButtonStack>
+            <div className='app block'>
+              <DownloadButton 腔口={腔口} 分詞={分詞}>
+                整段下載
+              </DownloadButton>
+            </div>
             <Container漢羅列表/>
           </div>
         </div>
