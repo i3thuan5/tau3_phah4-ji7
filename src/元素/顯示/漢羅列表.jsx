@@ -14,6 +14,7 @@ class 漢羅列表 extends React.Component {
           腔口,
           分詞: 綜音.分詞,
         });
+        console.log(src);
         return (
         <HanLoTsua
           key={i}
