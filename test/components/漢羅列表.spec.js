@@ -53,6 +53,7 @@ describe("Component", () => {
       expect(漢羅逝.props()).to.eql({
         臺羅閏號調: "Ta̍k-ke",
         漢字: "逐家",
+        是否合音: true,
         src: API.語音合成({ 分詞: "sui2", 腔口: "閩南語" }),
       });
     });
