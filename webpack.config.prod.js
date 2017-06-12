@@ -27,9 +27,15 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
+    new webpack.ProvidePlugin({
+      tensuConfig: "tensuConfig",
+    }),
   ],
   resolve: {
     extensions: [".js", ".jsx"],
+    alias: {
+      tensuConfig: path.join(path.resolve(), "taupahji.config.js"),
+    },
   },
   module: {
     rules: [

@@ -5,7 +5,6 @@ node_js:
 - '6'
 env:
 - TSI2_LING7='build'
-- TSI2_LING7='test'
 - TSI2_LING7='check'
 branches:
   only:
