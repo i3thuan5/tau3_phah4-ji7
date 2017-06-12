@@ -1,6 +1,6 @@
 {
   "name": "tau3_phah4-ji7",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "鬥拍字",
   "scripts": {
     "start": "node devServer.js",
