@@ -1,7 +1,7 @@
 module.exports = {
   專案: "鬥拍字",
   腔口: ["閩南語"],
-  範例查詢: "大家好",
+  範例查詢: "逐家tsò-hué來chhit4-tho5！",
   頁尾連結: [{
     title: "Facebook",
     url: "https://www.facebook.com/i3thuan5/",
