@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sih4sing5hong5/tau3_phah4-ji7.git"
+    "url": "https://github.com/i3thuan5/tau3_phah4-ji7.git"
   },
   "keywords": [
     "臺語",
@@ -20,13 +20,13 @@
   "author": "薛丞宏",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sih4sing5hong5/tau3_phah4-ji7/issues"
+    "url": "https://github.com/i3thuan5/tau3_phah4-ji7/issues"
   },
-  "homepage": "http://xn--jny.xn--v0qr21b.xn--kpry57d/",
+  "homepage": "http://xn--p8s96olm5c.xn--v0qr21b.xn--kpry57d/",
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "ten1su4": "^1.0.1"
+    "ten1su4": "^1.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
