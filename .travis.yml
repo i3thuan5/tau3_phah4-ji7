@@ -16,7 +16,7 @@ before_deploy:
 - npm run build
 deploy:
   provider: pages
-  fqdn: xn--p8s96olm5c.xn--v0qr21b.xn--kpry57d
+  fqdn: suisiann.ithuan.tw
   skip_cleanup: true
   local_dir: build/
   github_token:
