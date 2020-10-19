@@ -1,13 +1,15 @@
 sudo: false
 language: node_js
 node_js:
-- '14'
+- '6'
 env:
 - TSI2_LING7='build'
 - TSI2_LING7='check'
 branches:
   only:
   - master
+install:
+- npm ci
 script:
 - echo npm run $TSI2_LING7
 - npm run $TSI2_LING7
