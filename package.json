@@ -26,7 +26,7 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "ten1su4": "^1.1.1"
+    "ten1su4": "i3thuan5/TenSu#mbian-npm-6"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
