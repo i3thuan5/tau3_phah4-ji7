@@ -24,10 +24,9 @@
   },
   "homepage": "http://xn--p8s96olm5c.xn--v0qr21b.xn--kpry57d/",
   "dependencies": {
-    "14": "^3.1.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "ten1su4": "i3thuan5/TenSu#mbian-npm-6"
+    "ten1su4": "^1.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
