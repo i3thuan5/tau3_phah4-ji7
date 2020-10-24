@@ -7,8 +7,8 @@ const 計算複製內容 = (綜合標音 = []) => {
   .map((item) => {
     const 漢字 = item.漢字.replace(/ /g, "");
     return {
-      漢字羅馬: [漢字, item.羅馬字].join("\n"),
-      羅馬字: item.羅馬字,
+      漢字羅馬: [漢字, item.KIP].join("\n"),
+      羅馬字: item.KIP,
       漢字,
     };
   })

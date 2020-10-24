@@ -19,7 +19,7 @@ class 漢羅列表 extends React.Component {
           key={i}
           src={src}
           漢字={綜音.漢字}
-          羅馬字={綜音.羅馬字}/>
+          羅馬字={綜音.KIP}/>
         );
       })}
       </div>
@@ -30,7 +30,7 @@ class 漢羅列表 extends React.Component {
 漢羅列表.propTypes = {
   結果腔口: PropTypes.string.isRequired,
   綜合標音: PropTypes.arrayOf(PropTypes.shape({
-    羅馬字: PropTypes.string.isRequired,
+    KIP: PropTypes.string.isRequired,
     漢字: PropTypes.string.isRequired,
     分詞: PropTypes.string.isRequired,
   })).isRequired,
