@@ -31,8 +31,8 @@ export const 遠端查詢 = (語句, 腔口) => (dispatch) => {
   const apiFunc = API.取得查詢函式();
 
   return superagent
-    .get(apiFunc())
-    .query({
+    .post(apiFunc())
+    .send({
       taibun: 語句.trim(),
     })
     .then(({ body }) => dispatch(收到遠端查詢(語句, 腔口, body)))
