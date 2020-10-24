@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import MyProvider from "ten1su4";
+import MyProvider from "./providers";
 
 const root = document.getElementById("app");
 

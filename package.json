@@ -25,8 +25,7 @@
   "homepage": "http://xn--p8s96olm5c.xn--v0qr21b.xn--kpry57d/",
   "dependencies": {
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "ten1su4": "^1.1.4"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
