@@ -32,6 +32,7 @@ export const 遠端查詢 = (語句, 腔口) => (dispatch) => {
 
   return superagent
     .post(apiFunc())
+    .type('form')
     .send({
       taibun: 語句.trim(),
     })
