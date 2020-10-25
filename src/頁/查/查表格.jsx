@@ -10,7 +10,7 @@ export const 取得新網址 = (語句, 腔) => {
       `/%E8%AC%9B/${腔}/${encodeURI(語句)}`);
   }
   return (
-      `/%E8%AC%9B/${encodeURI(語句)}`);
+    `/%E8%AC%9B/${encodeURI(語句)}`);
 };
 
 const 更新網址 = (語句, 腔) =>
@@ -49,8 +49,8 @@ class 查表格 extends React.Component {
     if (showSelect) {
       return (
         <select defaultValue={腔}
-        ref={(c) => { this.refSelect = c; }}
-        className="ui dropdown">
+          ref={(c) => { this.refSelect = c; }}
+          className="ui dropdown">
           {
             config.全部腔口().map((t, k) => (
               <option value={t} key={k}>{t}</option>
@@ -67,21 +67,21 @@ class 查表格 extends React.Component {
     const { menu } = this.state;
     return (
       <form className='ui form'
-       onSubmit={this.送出.bind(this)}>
+        onSubmit={this.送出.bind(this)}>
 
         {menu}
 
         <div className="app block">
-        <textarea defaultValue={語句}
-        ref={(c) => { this.refText = c; }}
-        rows='3' />
+          <textarea defaultValue={語句}
+            ref={(c) => { this.refText = c; }}
+            rows='3' />
         </div>
 
         <div className="app clearing">
           <button className={
             `ui huge primary right floated button ${
-            正在查詢 ? "disabled" : ""}`}
-            type='submit'
+              正在查詢 ? "disabled" : ""}`}
+          type='submit'
           >查</button>
         </div>
 

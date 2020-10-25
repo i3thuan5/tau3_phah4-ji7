@@ -14,26 +14,26 @@ const getAppStore = () => {
     middlewares.push(createLogger);
   }
   const store = createStore(
-      reducer,
-      applyMiddleware(...middlewares),
-    );
+    reducer,
+    applyMiddleware(...middlewares),
+  );
   return store;
 };
 
 const MyProvider = () => {
   const store = getAppStore();
   return (
-      <Provider store={store}>
-        <Router history={browserHistory}>
-          <Route path='/' component={網站}>
-            <IndexRoute component={查}/>
-            <Route path='%E8%AC%9B/:khiunn/:ku' component={查}/>
-            <Route path='%E8%AC%9B(/:ku)' component={查}/>
-            <Route path='%E8%AC%9B' component={查}/>
-            <Route path='**/:ku' component={查}/>
-          </Route>
-        </Router>
-      </Provider>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path='/' component={網站}>
+          <IndexRoute component={查}/>
+          <Route path='%E8%AC%9B/:khiunn/:ku' component={查}/>
+          <Route path='%E8%AC%9B(/:ku)' component={查}/>
+          <Route path='%E8%AC%9B' component={查}/>
+          <Route path='**/:ku' component={查}/>
+        </Route>
+      </Router>
+    </Provider>
   );
 };
 

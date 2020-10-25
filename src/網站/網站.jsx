@@ -6,24 +6,23 @@ import 頁尾 from "./頁尾";
 import config from "../config";
 
 class 網站 extends React.Component {
-
   render() {
     const { ku, khiunn } = this.props.params;
 
     return (
-        <Layout>
-          <頁頭/>
-          {
-            React.cloneElement(
-              this.props.children,
-              {
-                語句: ku || config.範例查詢(),
-                腔: khiunn || config.預設腔口(),
-              },
-            )
-          }
-          <頁尾/>
-        </Layout>
+      <Layout>
+        <頁頭/>
+        {
+          React.cloneElement(
+            this.props.children,
+            {
+              語句: ku || config.範例查詢(),
+              腔: khiunn || config.預設腔口(),
+            },
+          )
+        }
+        <頁尾/>
+      </Layout>
     );
   }
 }

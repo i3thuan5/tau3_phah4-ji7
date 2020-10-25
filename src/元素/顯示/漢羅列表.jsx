@@ -3,27 +3,26 @@ import PropTypes from "prop-types";
 import { PlayButton, DownloadButton, 意傳服務 } from "demo-ui";
 
 class 漢羅列表 extends React.Component {
-
   render() {
     const { 結果腔口, 綜合標音 } = this.props;
     let src;
     return (
       <div>
-      {綜合標音.map((綜音, i) => {
-        src = (
-          encodeURI('https://hapsing.ithuan.tw/bangtsam?taibun=') +
+        {綜合標音.map((綜音, i) => {
+          src = (
+            encodeURI("https://hapsing.ithuan.tw/bangtsam?taibun=") +
           encodeURIComponent(綜音.KIP)
-        )
-        return (
-          <div key={i}>
-            <PlayButton src={src}/>
-            <DownloadButton src={src}/>
-            <ruby className="app ruby">
-            {綜音.漢字}
-            <rt>{綜音.KIP}</rt>
-            </ruby>
-          </div>
-        );
+          );
+          return (
+            <div key={i}>
+              <PlayButton src={src}/>
+              <DownloadButton src={src}/>
+              <ruby className="app ruby">
+                {綜音.漢字}
+                <rt>{綜音.KIP}</rt>
+              </ruby>
+            </div>
+          );
         // return (
         // <HanLoTsua
         //   key={i}
@@ -31,7 +30,7 @@ class 漢羅列表 extends React.Component {
         //   漢字={綜音.漢字}
         //   羅馬字={綜音.KIP}/>
         // );
-      })}
+        })}
       </div>
     );
   }

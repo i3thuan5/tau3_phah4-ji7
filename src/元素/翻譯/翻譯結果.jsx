@@ -57,29 +57,29 @@ class 翻譯結果 extends React.Component {
     const { 正在查詢, 發生錯誤 } = this.props;
     const 複製鈕群 = this.取得複製鈕群();
     return (
-        <div>
-          {
-            (正在查詢 &&
+      <div>
+        {
+          (正在查詢 &&
               <h1 className='ui header'>載入中……</h1>
-            )
-          }
-          {
-            (發生錯誤 &&
+          )
+        }
+        {
+          (發生錯誤 &&
               <h1 className='ui red header'>主機發生錯誤</h1>
-            )
-          }
-          <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
-            <div
-              className='ui icon red label'>
-              <i className='icon-docs'/>
+          )
+        }
+        <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
+          <div
+            className='ui icon red label'>
+            <i className='icon-docs'/>
                   Khóo-pi(Copy)結果：
-            </div>
-            <ButtonStack>
-            {複製鈕群}
-            </ButtonStack>
-            <Container漢羅列表/>
           </div>
+          <ButtonStack>
+            {複製鈕群}
+          </ButtonStack>
+          <Container漢羅列表/>
         </div>
+      </div>
     );
   }
 }

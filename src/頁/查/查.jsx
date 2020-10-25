@@ -5,7 +5,6 @@ import Container查表格 from "./查表格.container";
 import "./查.css";
 
 class 查 extends React.Component {
-
   render() {
     return (
       <MainSection>
