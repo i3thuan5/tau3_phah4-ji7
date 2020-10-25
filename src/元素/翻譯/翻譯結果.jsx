@@ -78,9 +78,6 @@ class 翻譯結果 extends React.Component {
             <ButtonStack>
             {複製鈕群}
             </ButtonStack>
-            <div className='app block'>
-              {整段鈕群}
-            </div>
             <Container漢羅列表/>
           </div>
         </div>
