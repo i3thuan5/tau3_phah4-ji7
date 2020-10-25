@@ -10,10 +10,10 @@ class 漢羅列表 extends React.Component {
     return (
       <div>
       {綜合標音.map((綜音, i) => {
-        src = 意傳服務.語音合成({
-          腔口: 結果腔口,
-          分詞: 綜音.分詞,
-        });
+        src = (
+          encodeURI('https://hapsing.ithuan.tw/bangtsam?taibun=') +
+          encodeURIComponent(綜音.KIP)
+        )
         return (
           <div key={i}>
             <PlayButton src={src}/>
