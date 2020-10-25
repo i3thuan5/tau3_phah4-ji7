@@ -70,6 +70,11 @@ class 翻譯結果 extends React.Component {
             )
           }
           <div style={{ opacity: 正在查詢 ? 0.3 : 1 }}>
+            <div
+              className='ui icon red label'>
+              <i className='icon-docs'/>
+                  Khóo-pi(Copy)結果：
+            </div>
             <ButtonStack>
             {複製鈕群}
             </ButtonStack>
