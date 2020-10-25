@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { PlayButton, DownloadButton, 意傳服務 } from "demo-ui";
+import { PlayButton, DownloadButton } from "demo-ui";
 
 class 漢羅列表 extends React.Component {
   render() {
-    const { 結果腔口, 綜合標音 } = this.props;
+    const { 綜合標音 } = this.props;
     let src;
     return (
       <div>
