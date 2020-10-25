@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HanLoTsua, 意傳服務 } from "demo-ui";
+import { HanLoTsua, PlayButton, DownloadButton, 意傳服務 } from "demo-ui";
 
 class 漢羅列表 extends React.Component {
 
@@ -15,12 +15,22 @@ class 漢羅列表 extends React.Component {
           分詞: 綜音.分詞,
         });
         return (
-        <HanLoTsua
-          key={i}
-          src={src}
-          漢字={綜音.漢字}
-          羅馬字={綜音.KIP}/>
+          <div>
+            <PlayButton src={src}/>
+            <DownloadButton src={src}/>
+            <ruby className="app ruby">
+            {綜音.漢字}
+            <rt>{綜音.KIP}</rt>
+            </ruby>
+          </div>
         );
+        // return (
+        // <HanLoTsua
+        //   key={i}
+        //   src={src}
+        //   漢字={綜音.漢字}
+        //   羅馬字={綜音.KIP}/>
+        // );
       })}
       </div>
     );
