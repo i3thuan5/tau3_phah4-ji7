@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { HanLoTsua, PlayButton, DownloadButton, 意傳服務 } from "demo-ui";
+import { PlayButton, DownloadButton, 意傳服務 } from "demo-ui";
 
 class 漢羅列表 extends React.Component {
 
@@ -15,7 +15,7 @@ class 漢羅列表 extends React.Component {
           分詞: 綜音.分詞,
         });
         return (
-          <div>
+          <div key={i}>
             <PlayButton src={src}/>
             <DownloadButton src={src}/>
             <ruby className="app ruby">

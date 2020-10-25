@@ -56,7 +56,6 @@ class 翻譯結果 extends React.Component {
   render() {
     const { 正在查詢, 發生錯誤 } = this.props;
     const 複製鈕群 = this.取得複製鈕群();
-    const 整段鈕群 = this.取得整段鈕群();
     return (
         <div>
           {
