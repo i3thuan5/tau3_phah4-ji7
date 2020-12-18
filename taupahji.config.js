@@ -4,15 +4,15 @@ module.exports = {
   範例查詢: "逐家tsò-hué來chhit4-tho5！",
   頁尾連結: [{
     title: "Facebook",
-    url: "https://www.facebook.com/i3thuan5/",
+    url: "https://www.facebook.com/ithuan.tw/",
   },
   {
     title: "Github",
     url: "https://github.com/i3thuan5/tau3_phah4-ji7",
   },
   {
-    title: "意傳文化科技",
-    url: "https://xn--v0qr21b.xn--kpry57d/",
+    title: "意傳科技",
+    url: "https://ithuan.tw/",
   },
   {
     title: "語料來源",
