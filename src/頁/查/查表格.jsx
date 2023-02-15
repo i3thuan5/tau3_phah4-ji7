@@ -72,10 +72,22 @@ class 查表格 extends React.Component {
         {menu}
 
         <div className="app block">
-          <textarea defaultValue={語句}
+          <textarea
+            placeholder={語句}
             ref={(c) => { this.refText = c; }}
-            rows='3' />
+            rows='3'
+            onKeyDown={(event) => {
+              if (event.keyCode === 32 || event.keyCode === 39) {
+                event.preventDefault(); // prevent space from being added to text
+                this.refText.value = this.refText.getAttribute('placeholder');
+                this.refText.removeAttribute('placeholder');
+              }
+            }}
+          />
         </div>
+
+
+
 
         <div className="app clearing">
           <button className={
