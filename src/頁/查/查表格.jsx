@@ -77,11 +77,10 @@ class 查表格 extends React.Component {
             ref={(c) => { this.refText = c; }}
             rows='3'
             onKeyDown={(event) => {
-              const allowedKeyCodes = [32, 39];
-              if (allowedKeyCodes.includes(event.keyCode) && this.refText.value === "") {
-                event.preventDefault(); // prevent space or right arrow from being added to text
+              const allowedKeyCodes = [32, 39, 40]; //若是揤space、正爿箭頭抑是下跤箭頭，才共placeholder的文字貼入去
+              if (this.refText.value === "" && allowedKeyCodes.includes(event.keyCode)) {
+                event.preventDefault(); // 莫共space、正爿箭頭抑是下跤箭頭的動作嘛貼落去
                 this.refText.value = this.refText.getAttribute('placeholder');
-                this.refText.removeAttribute('placeholder');
               }
             }}
           />
