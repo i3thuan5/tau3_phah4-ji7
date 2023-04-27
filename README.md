@@ -27,7 +27,7 @@ npm run reformat #自動排版
 
 
 ## API
-* [臺灣言語服務](https://github.com/sih4sing5hong5/tai5-uan5_gian5-gi2_hok8-bu7)
+* [Tau-Phah-Ji-Command](https://github.com/i3thuan5/TauPhahJi-Command)
 
 
 ## License授權
