@@ -14,13 +14,11 @@ import 計算複製內容 from "../../utils/複製";
 class 翻譯結果 extends React.Component {
   取得複製鈕群() {
     const { 正在查詢, 發生錯誤 } = this.props;
-    let { 綜合標音, 分詞 } = this.props;
+    let { 綜合標音 } = this.props;
     綜合標音 = 綜合標音 || [];
-    分詞 = 分詞 || "";
     let 複製內容 = {};
     if (!正在查詢 && !發生錯誤 && 綜合標音.length > 0) {
       複製內容 = 計算複製內容(綜合標音);
-      複製內容.分詞 = 分詞;
     }
 
     const 複製鈕群 = [];
