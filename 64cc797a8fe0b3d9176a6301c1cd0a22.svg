@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="play" unicode="&#xe800;" d="M772 333l-741-412q-13-7-22-2t-9 20v822q0 14 9 20t22-2l741-412q13-7 13-17t-13-17z" horiz-adv-x="785.7" />
+
+<glyph glyph-name="download-alt" unicode="&#xe801;" d="M0-150l0 135 1000 0 0-135-1000 0z m88 586l228 0 0 414 370 0 0-414 228 0-414-385z" horiz-adv-x="1000" />
+
+<glyph glyph-name="docs" unicode="&#xf0c5;" d="M946 636q23 0 38-16t16-38v-678q0-23-16-38t-38-16h-535q-23 0-38 16t-16 38v160h-303q-23 0-38 16t-16 38v375q0 22 11 49t27 42l228 228q15 16 42 27t49 11h232q23 0 38-16t16-38v-183q38 23 71 23h232z m-303-119l-167-167h167v167z m-357 214l-167-167h167v167z m109-361l176 176v233h-214v-233q0-22-15-37t-38-16h-233v-357h286v143q0 22 11 49t27 42z m534-449v643h-215v-232q0-22-15-38t-38-15h-232v-358h500z" horiz-adv-x="1000" />
+
+<glyph glyph-name="attention-alt" unicode="&#xf12a;" d="M286 154v-125q0-15-11-25t-25-11h-143q-14 0-25 11t-11 25v125q0 14 11 25t25 10h143q15 0 25-10t11-25z m17 589l-16-429q-1-14-12-25t-25-10h-143q-14 0-25 10t-12 25l-15 429q-1 14 10 25t24 11h179q14 0 25-11t10-25z" horiz-adv-x="357.1" />
+</font>
+</defs>
+</svg>
